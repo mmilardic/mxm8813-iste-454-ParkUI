@@ -10,6 +10,8 @@
 		5C86DA0A7E2BD0AAAA417206 /* Pods_ParkUI_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC61BB79CD868262F077517 /* Pods_ParkUI_FinalProject.framework */; };
 		E53A3F72257D02D500C0E354 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A3F71257D02D500C0E354 /* Home.swift */; };
 		E53A3F74257D048F00C0E354 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A3F73257D048F00C0E354 /* Login.swift */; };
+		E53A3F76257D05FD00C0E354 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A3F75257D05FD00C0E354 /* SignUp.swift */; };
+		E53A3F78257D063200C0E354 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A3F77257D063200C0E354 /* ErrorView.swift */; };
 		E53F65A3256ED60700697768 /* UserTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F65A2256ED60700697768 /* UserTicket.swift */; };
 		E5537FDC25650D400075038E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5537FDB25650D400075038E /* AppDelegate.swift */; };
 		E5537FDE25650D400075038E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5537FDD25650D400075038E /* SceneDelegate.swift */; };
@@ -18,10 +20,7 @@
 		E5537FE525650D450075038E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5537FE425650D450075038E /* Assets.xcassets */; };
 		E5537FE825650D450075038E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5537FE725650D450075038E /* Preview Assets.xcassets */; };
 		E5537FEB25650D450075038E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5537FE925650D450075038E /* LaunchScreen.storyboard */; };
-		E5682323257BCC8200EEDB7A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5682322257BCC8200EEDB7A /* LoginView.swift */; };
-		E5682326257BD1E000EEDB7A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5682325257BD1E000EEDB7A /* HomeView.swift */; };
 		E568232B257BDC4300EEDB7A /* CShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E568232A257BDC4300EEDB7A /* CShape.swift */; };
-		E568232D257BDDE800EEDB7A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E568232C257BDDE800EEDB7A /* SignUpView.swift */; };
 		E5C19CC725651D0E00131370 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5C19CC625651D0E00131370 /* GoogleService-Info.plist */; };
 		E5C19CC925651EDB00131370 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C19CC825651EDB00131370 /* Zone.swift */; };
 		E5C19CCB25651EEA00131370 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C19CCA25651EEA00131370 /* User.swift */; };
@@ -36,6 +35,8 @@
 		9EC61BB79CD868262F077517 /* Pods_ParkUI_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkUI_FinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E53A3F71257D02D500C0E354 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		E53A3F73257D048F00C0E354 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		E53A3F75257D05FD00C0E354 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		E53A3F77257D063200C0E354 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		E53F65A2256ED60700697768 /* UserTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTicket.swift; sourceTree = "<group>"; };
 		E5537FD825650D400075038E /* ParkUI-FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParkUI-FinalProject.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5537FDB25650D400075038E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,10 +47,7 @@
 		E5537FE725650D450075038E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E5537FEA25650D450075038E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5537FEC25650D450075038E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E5682322257BCC8200EEDB7A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		E5682325257BD1E000EEDB7A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E568232A257BDC4300EEDB7A /* CShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CShape.swift; sourceTree = "<group>"; };
-		E568232C257BDDE800EEDB7A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E5C19CC625651D0E00131370 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E5C19CC825651EDB00131370 /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
 		E5C19CCA25651EEA00131370 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -167,21 +165,12 @@
 		E5537FF525650FD90075038E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E5682325257BD1E000EEDB7A /* HomeView.swift */,
-				E5682324257BD0CD00EEDB7A /* Login */,
 				E53A3F71257D02D500C0E354 /* Home.swift */,
 				E53A3F73257D048F00C0E354 /* Login.swift */,
+				E53A3F75257D05FD00C0E354 /* SignUp.swift */,
+				E53A3F77257D063200C0E354 /* ErrorView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		E5682324257BD0CD00EEDB7A /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				E5682322257BCC8200EEDB7A /* LoginView.swift */,
-				E568232C257BDDE800EEDB7A /* SignUpView.swift */,
-			);
-			path = Login;
 			sourceTree = "<group>";
 		};
 		E5682327257BDBED00EEDB7A /* Shapes */ = {
@@ -320,19 +309,18 @@
 				E53A3F74257D048F00C0E354 /* Login.swift in Sources */,
 				E5537FE125650D400075038E /* ParkUI_FinalProject.xcdatamodeld in Sources */,
 				E5537FDC25650D400075038E /* AppDelegate.swift in Sources */,
+				E53A3F76257D05FD00C0E354 /* SignUp.swift in Sources */,
 				E5C19CCB25651EEA00131370 /* User.swift in Sources */,
 				E5C19CC925651EDB00131370 /* Zone.swift in Sources */,
 				E568232B257BDC4300EEDB7A /* CShape.swift in Sources */,
 				E5C19CD125652A4900131370 /* Ticket.swift in Sources */,
-				E5682326257BD1E000EEDB7A /* HomeView.swift in Sources */,
 				E5C19CD425652E3800131370 /* FirebaseHandler.swift in Sources */,
-				E568232D257BDDE800EEDB7A /* SignUpView.swift in Sources */,
 				E5C19CCF256523AE00131370 /* UserViewModel.swift in Sources */,
 				E5C19CCD2565233B00131370 /* UserVehicle.swift in Sources */,
 				E5537FE325650D400075038E /* ContentView.swift in Sources */,
-				E5682323257BCC8200EEDB7A /* LoginView.swift in Sources */,
 				E53A3F72257D02D500C0E354 /* Home.swift in Sources */,
 				E5537FDE25650D400075038E /* SceneDelegate.swift in Sources */,
+				E53A3F78257D063200C0E354 /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,39 +9,28 @@
 import SwiftUI
 import Firebase
 
-
 struct Home : View {
     
     @State var show = false
     @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
     
     var body: some View{
-        
-        NavigationView{
-            
             VStack{
-                
                 if self.status{
-                    
                     Homescreen()
-                }
-                else{
-                    
+                } else {
                     ZStack{
-                        
                         NavigationLink(destination: SignUp(show: self.$show), isActive: self.$show) {
-                            
                             Text("")
                         }
                         .hidden()
-                        
                         Login(show: self.$show)
                     }
                 }
             }
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
-            .navigationBarBackButtonHidden(true)
+//            .navigationBarTitle("")
+//            .navigationBarHidden(true)
+//            .navigationBarBackButtonHidden(true)
             .onAppear {
                 
                 NotificationCenter.default.addObserver(forName: NSNotification.Name("status"), object: nil, queue: .main) { (_) in
@@ -49,265 +38,106 @@ struct Home : View {
                     self.status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
                 }
             }
-        }
+        
     }
 }
 
 struct Homescreen : View {
     
-    var body: some View{
+    private enum Tab: String {
+        case home = "Home"
+        case profile = "Profile"
+        case scheduler = "Scheduler"
+        case creditCard = "Credit Card"
         
-        VStack{
-            
-            Text("Logged successfully")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(Color.black.opacity(0.7))
-            
-            Button(action: {
-                
-                try! Auth.auth().signOut()
-                UserDefaults.standard.set(false, forKey: "status")
-                NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
-                
-            }) {
-                
-                Text("Log out")
-                    .foregroundColor(.white)
-                    .padding(.vertical)
-                    .frame(width: UIScreen.main.bounds.width - 50)
+        var iconName: String {
+            switch self {
+            case .home:
+                return "house"
+            case .profile:
+                return "person.circle.fill"
+            case .scheduler:
+                return "calendar.badge.plus"
+            case .creditCard:
+                return "creditcard.fill"
             }
-            .background(Color("Color"))
-            .cornerRadius(10)
-            .padding(.top, 25)
         }
     }
-}
-
-
-
-struct SignUp : View {
     
-    @State var color = Color.black.opacity(0.7)
-    @State var email = ""
-    @State var pass = ""
-    @State var repass = ""
-    @State var visible = false
-    @State var revisible = false
-    @Binding var show : Bool
-    @State var alert = false
-    @State var error = ""
+    @State private var tabSelection = Tab.home
     
-    var body: some View{
+    private var navigationBarTitle: String {
+        tabSelection == .home ? "ParkUI" : tabSelection.rawValue
+    }
         
-        ZStack{
+    var body: some View{
+        NavigationView {
             
-            ZStack(alignment: .topLeading) {
+            TabView(selection: $tabSelection){
                 
-                GeometryReader{_ in
-                    
-                    VStack{
-                        
-                        Image("logo")
-                        
-                        Text("Log in to your account")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundColor(self.color)
-                            .padding(.top, 35)
-                        
-                        TextField("Email", text: self.$email)
-                        .autocapitalization(.none)
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color") : self.color,lineWidth: 2))
-                        .padding(.top, 25)
-                        
-                        HStack(spacing: 15){
-                            
-                            VStack{
-                                
-                                if self.visible{
-                                    
-                                    TextField("Password", text: self.$pass)
-                                    .autocapitalization(.none)
-                                }
-                                else{
-                                    
-                                    SecureField("Password", text: self.$pass)
-                                    .autocapitalization(.none)
-                                }
-                            }
-                            
-                            Button(action: {
-                                
-                                self.visible.toggle()
-                                
-                            }) {
-                                
-                                Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
-                                    .foregroundColor(self.color)
-                            }
-                            
-                        }
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Color") : self.color,lineWidth: 2))
-                        .padding(.top, 25)
-                        
-                        HStack(spacing: 15){
-                            
-                            VStack{
-                                
-                                if self.revisible{
-                                    
-                                    TextField("Re-enter", text: self.$repass)
-                                    .autocapitalization(.none)
-                                }
-                                else{
-                                    
-                                    SecureField("Re-enter", text: self.$repass)
-                                    .autocapitalization(.none)
-                                }
-                            }
-                            
-                            Button(action: {
-                                
-                                self.revisible.toggle()
-                                
-                            }) {
-                                
-                                Image(systemName: self.revisible ? "eye.slash.fill" : "eye.fill")
-                                    .foregroundColor(self.color)
-                            }
-                            
-                        }
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.repass != "" ? Color("Color") : self.color,lineWidth: 2))
-                        .padding(.top, 25)
-                        
-                        Button(action: {
-                            
-                            self.register()
-                        }) {
-                            
-                            Text("Register")
-                                .foregroundColor(.white)
-                                .padding(.vertical)
-                                .frame(width: UIScreen.main.bounds.width - 50)
-                        }
-                        .background(Color("Color"))
-                        .cornerRadius(10)
-                        .padding(.top, 25)
-                        
+                //homeScreen
+                VStack{
+                    //            Text("Logged successfully")
+                    //                .font(.title)
+                    //                .fontWeight(.bold)
+                    //                .foregroundColor(Color.black.opacity(0.7))
+                    //
+                    Button(action: {
+                        try! Auth.auth().signOut()
+                        UserDefaults.standard.set(false, forKey: "status")
+                        NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
+                    }) {
+
+                        Text("Log out")
+                            .foregroundColor(.white)
+                            .padding(.vertical)
+                            .frame(width: UIScreen.main.bounds.width - 50)
                     }
-                    .padding(.horizontal, 25)
+                    .background(Color("Color"))
+                    .cornerRadius(10)
+                    .padding(.top, 25)
+                }//vstack
+                    .tabItem {
+                        Image(systemName: Tab.home.iconName)
+                        Text(Tab.home.rawValue)
                 }
+                .tag(Tab.home)
                 
-                Button(action: {
-                    
-                    self.show.toggle()
-                    
-                }) {
-                    
-                    Image(systemName: "chevron.left")
-                        .font(.title)
-                        .foregroundColor(Color("Color"))
+                
+                //profile
+                Text("tralal")
+                    .tabItem {
+                        Image(systemName: Tab.profile.iconName)
+                        Text(Tab.profile.rawValue)
                 }
-                .padding()
-            }
-            
-            if self.alert{
+                .tag(Tab.profile)
                 
-                ErrorView(alert: self.$alert, error: self.$error)
-            }
+                //scheduler
+                Text("tralal")
+                    .tabItem {
+                        Image(systemName: Tab.scheduler.iconName)
+                        Text(Tab.scheduler.rawValue)
+                }
+                .tag(Tab.scheduler)
+                
+                //creditCard
+                   Text("tralal")
+
+                    .tabItem {
+                        Image(systemName: Tab.creditCard.iconName)
+                        Text(Tab.creditCard.rawValue)
+                }
+                .tag(Tab.creditCard)
+                
+                
+            }//tabView
         }
-        .navigationBarBackButtonHidden(true)
-    }
-    
-    func register(){
+        .navigationBarTitle(navigationBarTitle)
+//        .navigationBarHidden(tabSelection == Tab.home)
         
-        if self.email != ""{
-            
-            if self.pass == self.repass{
-                
-                Auth.auth().createUser(withEmail: self.email, password: self.pass) { (res, err) in
-                    
-                    if err != nil{
-                        
-                        self.error = err!.localizedDescription
-                        self.alert.toggle()
-                        return
-                    }
-                    
-                    print("success")
-                    
-                    UserDefaults.standard.set(true, forKey: "status")
-                    NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
-                }
-            }
-            else{
-                
-                self.error = "Password mismatch"
-                self.alert.toggle()
-            }
-        }
-        else{
-            
-            self.error = "Please fill all the contents properly"
-            self.alert.toggle()
-        }
     }
 }
 
 
-struct ErrorView : View {
-    
-    @State var color = Color.black.opacity(0.7)
-    @Binding var alert : Bool
-    @Binding var error : String
-    
-    var body: some View{
-        
-        GeometryReader{_ in
-            
-            VStack{
-                
-                HStack{
-                    
-                    Text(self.error == "RESET" ? "Message" : "Error")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundColor(self.color)
-                    
-                    Spacer()
-                }
-                .padding(.horizontal, 25)
-                
-                Text(self.error == "RESET" ? "Password reset link has been sent successfully" : self.error)
-                .foregroundColor(self.color)
-                .padding(.top)
-                .padding(.horizontal, 25)
-                
-                Button(action: {
-                    
-                    self.alert.toggle()
-                    
-                }) {
-                    
-                    Text(self.error == "RESET" ? "Ok" : "Cancel")
-                        .foregroundColor(.white)
-                        .padding(.vertical)
-                        .frame(width: UIScreen.main.bounds.width - 120)
-                }
-                .background(Color("Color"))
-                .cornerRadius(10)
-                .padding(.top, 25)
-                
-            }
-            .padding(.vertical, 25)
-            .frame(width: UIScreen.main.bounds.width - 70)
-            .background(Color.white)
-            .cornerRadius(15)
-        }
-        .background(Color.black.opacity(0.35).edgesIgnoringSafeArea(.all))
-    }
-}
+
+
