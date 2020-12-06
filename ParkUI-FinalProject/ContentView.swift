@@ -9,8 +9,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject private var viewModel = UserViewModel()
+
+
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+//            HomeView(viewModel: viewModel)
+            Home()
+        }
     }
 }
 

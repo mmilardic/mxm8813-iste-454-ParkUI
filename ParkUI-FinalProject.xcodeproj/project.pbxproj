@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C86DA0A7E2BD0AAAA417206 /* Pods_ParkUI_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC61BB79CD868262F077517 /* Pods_ParkUI_FinalProject.framework */; };
+		E53A3F72257D02D500C0E354 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A3F71257D02D500C0E354 /* Home.swift */; };
+		E53A3F74257D048F00C0E354 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A3F73257D048F00C0E354 /* Login.swift */; };
+		E53F65A3256ED60700697768 /* UserTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F65A2256ED60700697768 /* UserTicket.swift */; };
 		E5537FDC25650D400075038E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5537FDB25650D400075038E /* AppDelegate.swift */; };
 		E5537FDE25650D400075038E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5537FDD25650D400075038E /* SceneDelegate.swift */; };
 		E5537FE125650D400075038E /* ParkUI_FinalProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E5537FDF25650D400075038E /* ParkUI_FinalProject.xcdatamodeld */; };
@@ -14,9 +18,25 @@
 		E5537FE525650D450075038E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5537FE425650D450075038E /* Assets.xcassets */; };
 		E5537FE825650D450075038E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5537FE725650D450075038E /* Preview Assets.xcassets */; };
 		E5537FEB25650D450075038E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5537FE925650D450075038E /* LaunchScreen.storyboard */; };
+		E5682323257BCC8200EEDB7A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5682322257BCC8200EEDB7A /* LoginView.swift */; };
+		E5682326257BD1E000EEDB7A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5682325257BD1E000EEDB7A /* HomeView.swift */; };
+		E568232B257BDC4300EEDB7A /* CShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E568232A257BDC4300EEDB7A /* CShape.swift */; };
+		E568232D257BDDE800EEDB7A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E568232C257BDDE800EEDB7A /* SignUpView.swift */; };
+		E5C19CC725651D0E00131370 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5C19CC625651D0E00131370 /* GoogleService-Info.plist */; };
+		E5C19CC925651EDB00131370 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C19CC825651EDB00131370 /* Zone.swift */; };
+		E5C19CCB25651EEA00131370 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C19CCA25651EEA00131370 /* User.swift */; };
+		E5C19CCD2565233B00131370 /* UserVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C19CCC2565233B00131370 /* UserVehicle.swift */; };
+		E5C19CCF256523AE00131370 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C19CCE256523AE00131370 /* UserViewModel.swift */; };
+		E5C19CD125652A4900131370 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C19CD025652A4900131370 /* Ticket.swift */; };
+		E5C19CD425652E3800131370 /* FirebaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C19CD325652E3800131370 /* FirebaseHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		667D5C4858DF7EB4483D9959 /* Pods-ParkUI-FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkUI-FinalProject.release.xcconfig"; path = "Target Support Files/Pods-ParkUI-FinalProject/Pods-ParkUI-FinalProject.release.xcconfig"; sourceTree = "<group>"; };
+		9EC61BB79CD868262F077517 /* Pods_ParkUI_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkUI_FinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E53A3F71257D02D500C0E354 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		E53A3F73257D048F00C0E354 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		E53F65A2256ED60700697768 /* UserTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTicket.swift; sourceTree = "<group>"; };
 		E5537FD825650D400075038E /* ParkUI-FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParkUI-FinalProject.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5537FDB25650D400075038E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5537FDD25650D400075038E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +46,18 @@
 		E5537FE725650D450075038E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E5537FEA25650D450075038E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5537FEC25650D450075038E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5682322257BCC8200EEDB7A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E5682325257BD1E000EEDB7A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E568232A257BDC4300EEDB7A /* CShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CShape.swift; sourceTree = "<group>"; };
+		E568232C257BDDE800EEDB7A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		E5C19CC625651D0E00131370 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E5C19CC825651EDB00131370 /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
+		E5C19CCA25651EEA00131370 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E5C19CCC2565233B00131370 /* UserVehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVehicle.swift; sourceTree = "<group>"; };
+		E5C19CCE256523AE00131370 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		E5C19CD025652A4900131370 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		E5C19CD325652E3800131370 /* FirebaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHandler.swift; sourceTree = "<group>"; };
+		E7500E59D9DF858B956BA5C9 /* Pods-ParkUI-FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkUI-FinalProject.debug.xcconfig"; path = "Target Support Files/Pods-ParkUI-FinalProject/Pods-ParkUI-FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +65,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C86DA0A7E2BD0AAAA417206 /* Pods_ParkUI_FinalProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D5CF17DED99756F81828D9E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E7500E59D9DF858B956BA5C9 /* Pods-ParkUI-FinalProject.debug.xcconfig */,
+				667D5C4858DF7EB4483D9959 /* Pods-ParkUI-FinalProject.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9805EBCA43AD80CEE53990CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9EC61BB79CD868262F077517 /* Pods_ParkUI_FinalProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E5537FCF25650D400075038E = {
 			isa = PBXGroup;
 			children = (
+				E5682327257BDBED00EEDB7A /* Shapes */,
+				E5C19CD225652E1D00131370 /* Firebase */,
+				E5C19CC625651D0E00131370 /* GoogleService-Info.plist */,
+				E5537FF525650FD90075038E /* View */,
+				E5537FF425650FCE0075038E /* ViewModel */,
+				E5537FF325650F2A0075038E /* Model */,
+				E5537FF225650D5F0075038E /* Lifecycle */,
 				E5537FDA25650D400075038E /* ParkUI-FinalProject */,
 				E5537FD925650D400075038E /* Products */,
+				2D5CF17DED99756F81828D9E /* Pods */,
+				9805EBCA43AD80CEE53990CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,8 +117,6 @@
 		E5537FDA25650D400075038E /* ParkUI-FinalProject */ = {
 			isa = PBXGroup;
 			children = (
-				E5537FDB25650D400075038E /* AppDelegate.swift */,
-				E5537FDD25650D400075038E /* SceneDelegate.swift */,
 				E5537FE225650D400075038E /* ContentView.swift */,
 				E5537FE425650D450075038E /* Assets.xcassets */,
 				E5537FE925650D450075038E /* LaunchScreen.storyboard */,
@@ -78,6 +135,71 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		E5537FF225650D5F0075038E /* Lifecycle */ = {
+			isa = PBXGroup;
+			children = (
+				E5537FDB25650D400075038E /* AppDelegate.swift */,
+				E5537FDD25650D400075038E /* SceneDelegate.swift */,
+			);
+			path = Lifecycle;
+			sourceTree = "<group>";
+		};
+		E5537FF325650F2A0075038E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E5C19CC825651EDB00131370 /* Zone.swift */,
+				E5C19CCA25651EEA00131370 /* User.swift */,
+				E5C19CCC2565233B00131370 /* UserVehicle.swift */,
+				E5C19CD025652A4900131370 /* Ticket.swift */,
+				E53F65A2256ED60700697768 /* UserTicket.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E5537FF425650FCE0075038E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E5C19CCE256523AE00131370 /* UserViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E5537FF525650FD90075038E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5682325257BD1E000EEDB7A /* HomeView.swift */,
+				E5682324257BD0CD00EEDB7A /* Login */,
+				E53A3F71257D02D500C0E354 /* Home.swift */,
+				E53A3F73257D048F00C0E354 /* Login.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E5682324257BD0CD00EEDB7A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E5682322257BCC8200EEDB7A /* LoginView.swift */,
+				E568232C257BDDE800EEDB7A /* SignUpView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E5682327257BDBED00EEDB7A /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				E568232A257BDC4300EEDB7A /* CShape.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		E5C19CD225652E1D00131370 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				E5C19CD325652E3800131370 /* FirebaseHandler.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -85,9 +207,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5537FEF25650D450075038E /* Build configuration list for PBXNativeTarget "ParkUI-FinalProject" */;
 			buildPhases = (
+				357FED60B6D9D246D1AD68C4 /* [CP] Check Pods Manifest.lock */,
 				E5537FD425650D400075038E /* Sources */,
 				E5537FD525650D400075038E /* Frameworks */,
 				E5537FD625650D400075038E /* Resources */,
+				D20AD29BB48C4E16542DE82B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -137,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5537FEB25650D450075038E /* LaunchScreen.storyboard in Resources */,
+				E5C19CC725651D0E00131370 /* GoogleService-Info.plist in Resources */,
 				E5537FE825650D450075038E /* Preview Assets.xcassets in Resources */,
 				E5537FE525650D450075038E /* Assets.xcassets in Resources */,
 			);
@@ -144,14 +269,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		357FED60B6D9D246D1AD68C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ParkUI-FinalProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D20AD29BB48C4E16542DE82B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ParkUI-FinalProject/Pods-ParkUI-FinalProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ParkUI-FinalProject/Pods-ParkUI-FinalProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ParkUI-FinalProject/Pods-ParkUI-FinalProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E5537FD425650D400075038E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E53F65A3256ED60700697768 /* UserTicket.swift in Sources */,
+				E53A3F74257D048F00C0E354 /* Login.swift in Sources */,
 				E5537FE125650D400075038E /* ParkUI_FinalProject.xcdatamodeld in Sources */,
 				E5537FDC25650D400075038E /* AppDelegate.swift in Sources */,
+				E5C19CCB25651EEA00131370 /* User.swift in Sources */,
+				E5C19CC925651EDB00131370 /* Zone.swift in Sources */,
+				E568232B257BDC4300EEDB7A /* CShape.swift in Sources */,
+				E5C19CD125652A4900131370 /* Ticket.swift in Sources */,
+				E5682326257BD1E000EEDB7A /* HomeView.swift in Sources */,
+				E5C19CD425652E3800131370 /* FirebaseHandler.swift in Sources */,
+				E568232D257BDDE800EEDB7A /* SignUpView.swift in Sources */,
+				E5C19CCF256523AE00131370 /* UserViewModel.swift in Sources */,
+				E5C19CCD2565233B00131370 /* UserVehicle.swift in Sources */,
 				E5537FE325650D400075038E /* ContentView.swift in Sources */,
+				E5682323257BCC8200EEDB7A /* LoginView.swift in Sources */,
+				E53A3F72257D02D500C0E354 /* Home.swift in Sources */,
 				E5537FDE25650D400075038E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +466,7 @@
 		};
 		E5537FF025650D450075038E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7500E59D9DF858B956BA5C9 /* Pods-ParkUI-FinalProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -293,11 +474,12 @@
 				DEVELOPMENT_TEAM = G9P83U7297;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "ParkUI-FinalProject/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.RIT.ParkUI-FinalProject";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RIT.Milardic.ParkUI-FinalProject";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -306,6 +488,7 @@
 		};
 		E5537FF125650D450075038E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 667D5C4858DF7EB4483D9959 /* Pods-ParkUI-FinalProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -313,11 +496,12 @@
 				DEVELOPMENT_TEAM = G9P83U7297;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "ParkUI-FinalProject/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.RIT.ParkUI-FinalProject";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RIT.Milardic.ParkUI-FinalProject";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
