@@ -15,29 +15,29 @@ struct Home : View {
     @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
     
     var body: some View{
-            VStack{
-                if self.status{
-                    Homescreen()
-                } else {
-                    ZStack{
-                        NavigationLink(destination: SignUp(show: self.$show), isActive: self.$show) {
-                            Text("")
-                        }
-                        .hidden()
-                        Login(show: self.$show)
+        VStack{
+            if self.status{
+                Homescreen()
+            } else {
+                ZStack{
+                    NavigationLink(destination: SignUp(show: self.$show), isActive: self.$show) {
+                        Text("")
                     }
+                    .hidden()
+                    Login(show: self.$show)
                 }
             }
-//            .navigationBarTitle("")
-//            .navigationBarHidden(true)
-//            .navigationBarBackButtonHidden(true)
+        }
+            //            .navigationBarTitle("")
+            //            .navigationBarHidden(true)
+            //            .navigationBarBackButtonHidden(true)
             .onAppear {
                 
                 NotificationCenter.default.addObserver(forName: NSNotification.Name("status"), object: nil, queue: .main) { (_) in
                     
                     self.status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
                 }
-            }
+        }
         
     }
 }
@@ -66,10 +66,11 @@ struct Homescreen : View {
     
     @State private var tabSelection = Tab.home
     
+    
     private var navigationBarTitle: String {
         tabSelection == .home ? "ParkUI" : tabSelection.rawValue
     }
-        
+    
     var body: some View{
         NavigationView {
             
@@ -87,7 +88,7 @@ struct Homescreen : View {
                         UserDefaults.standard.set(false, forKey: "status")
                         NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                     }) {
-
+                        
                         Text("Log out")
                             .foregroundColor(.white)
                             .padding(.vertical)
@@ -121,8 +122,7 @@ struct Homescreen : View {
                 .tag(Tab.scheduler)
                 
                 //creditCard
-                   Text("tralal")
-
+                CreditCard()
                     .tabItem {
                         Image(systemName: Tab.creditCard.iconName)
                         Text(Tab.creditCard.rawValue)
@@ -133,7 +133,7 @@ struct Homescreen : View {
             }//tabView
         }
         .navigationBarTitle(navigationBarTitle)
-//        .navigationBarHidden(tabSelection == Tab.home)
+        //        .navigationBarHidden(tabSelection == Tab.home)
         
     }
 }
