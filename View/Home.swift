@@ -11,8 +11,13 @@ import Firebase
 
 struct Home : View {
     
+    @ObservedObject var userViewModel: UserViewModel
     @State var show = false
     @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
+    
+    init(userViewModel: UserViewModel){
+        self.userViewModel = userViewModel
+    }
     
     var body: some View{
         VStack{
@@ -24,7 +29,7 @@ struct Home : View {
                         Text("")
                     }
                     .hidden()
-                    Login(show: self.$show)
+                    Login(userViewModel: self.userViewModel, show: self.$show)
                 }
             }
         }
@@ -122,7 +127,7 @@ struct Homescreen : View {
                 .tag(Tab.scheduler)
                 
                 //creditCard
-                CreditCard()
+                CreditCardView()
                     .tabItem {
                         Image(systemName: Tab.creditCard.iconName)
                         Text(Tab.creditCard.rawValue)
@@ -136,6 +141,7 @@ struct Homescreen : View {
         //        .navigationBarHidden(tabSelection == Tab.home)
         
     }
+    
 }
 
 

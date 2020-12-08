@@ -109,7 +109,6 @@ struct SignUp : View {
                         .padding(.top, 25)
                         
                         Button(action: {
-                            
                             self.register()
                         }) {
                             
@@ -149,21 +148,23 @@ struct SignUp : View {
     
     func register(){
         
+        
         if self.email != ""{
-            
             if self.pass == self.repass{
-                
                 Auth.auth().createUser(withEmail: self.email, password: self.pass) { (res, err) in
-                    
-                    if err != nil{
-                        
+//                    if err != nil{
+//
+//                    }
+//
+                    guard let userUID = Auth.auth().currentUser?.uid else {
                         self.error = err!.localizedDescription
                         self.alert.toggle()
                         return
                     }
+                    let newUser = User(username: "novi", firstName: "novi", lastName: "novi", password: "novi")
+                    FirebaseHandler.firestore.collection("users").document(userUID).setData(newUser.dictionary)
                     
                     print("success")
-                    
                     UserDefaults.standard.set(true, forKey: "status")
                     NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                 }

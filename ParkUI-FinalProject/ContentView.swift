@@ -10,13 +10,12 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject private var viewModel = UserViewModel()
+    @ObservedObject private var userViewModel = UserViewModel()
 
 
     var body: some View {
         NavigationView {
-//            HomeView(viewModel: viewModel)
-            Home()
+            Home(userViewModel: userViewModel)
         }
     }
 }

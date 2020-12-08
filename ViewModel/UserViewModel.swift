@@ -15,9 +15,23 @@ class UserViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     @Published var rePassword = ""
-    
+//    @Published var creditCard = CreditCard()
+    @Published var currentUser: User?
+        
     var ref: DocumentReference? = nil
+    
+    enum FirestoreTables: String {
+        case Users = "Users"
+    }
+    
 
+    func getCreditCard(){
+        
+    }
+    
+    func getUser(email: String){
+//        FirebaseHandler.firestore.user
+    }
     
     func getUsers(){
         FirebaseHandler.firestore.collection("users").getDocuments { (querySnapshot, err) in

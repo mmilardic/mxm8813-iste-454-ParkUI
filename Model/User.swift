@@ -8,12 +8,21 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestoreSwift
 
-struct User {
+struct User: Codable {
+    @DocumentID var id: String? = UUID().uuidString
     var username: String
     var firstName: String
     var lastName: String
     var password: String
+    
+    enum CodingKeys: String, CodingKey {
+        case username
+        case firstName
+        case lastName
+        case password
+    }
     
     var dictionary: [String: Any] {
         return [

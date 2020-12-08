@@ -12,6 +12,10 @@ import Firebase
  class FirebaseHandler {
     static let firestore = Firestore.firestore()
     static let users = firestore.collection("users")
-    static let firebase = FirebaseApp.configure()
+    
+    enum FirestoreTables: String {
+        case Users = "Users"
+    }
+    
     
 }

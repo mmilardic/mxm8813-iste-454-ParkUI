@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct CreditCard: View {
+struct CreditCardView: View {
     
     @State private var degrees: Double = 0
     @State private var flipped: Bool = false

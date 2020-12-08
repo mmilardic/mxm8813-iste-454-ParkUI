@@ -12,13 +12,21 @@ import Firebase
 
 struct Login : View {
     
-    @State var color = Color.black.opacity(0.7)
-    @State var email = ""
-    @State var pass = ""
-    @State var visible = false
+    
+    @ObservedObject var userViewModel: UserViewModel
+    
+    @State var color: Color = Color.black.opacity(0.7)
+    @State var email: String = ""
+    @State var pass: String = ""
+    @State var visible: Bool = false
     @Binding var show : Bool
-    @State var alert = false
-    @State var error = ""
+    @State var alert: Bool = false
+    @State var error: String = ""
+    
+    init(userViewModel: UserViewModel, show: Binding<Bool>){
+        self.userViewModel = userViewModel
+        self._show = show
+    }
     
     var body: some View{
         
@@ -39,10 +47,10 @@ struct Login : View {
                             .padding(.top, 35)
                         
                         TextField("Email", text: self.$email)
-                        .autocapitalization(.none)
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color") : self.color,lineWidth: 2))
-                        .padding(.top, 25)
+                            .autocapitalization(.none)
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color") : self.color,lineWidth: 2))
+                            .padding(.top, 25)
                         
                         HStack(spacing: 15){
                             
@@ -51,12 +59,12 @@ struct Login : View {
                                 if self.visible{
                                     
                                     TextField("Password", text: self.$pass)
-                                    .autocapitalization(.none)
+                                        .autocapitalization(.none)
                                 }
                                 else{
                                     
                                     SecureField("Password", text: self.$pass)
-                                    .autocapitalization(.none)
+                                        .autocapitalization(.none)
                                 }
                             }
                             
@@ -93,11 +101,8 @@ struct Login : View {
                         .padding(.top, 20)
                         
                         Button(action: {
-                            
                             self.verify()
-                            
                         }) {
-                            
                             Text("Log in")
                                 .foregroundColor(.white)
                                 .padding(.vertical)
@@ -106,15 +111,12 @@ struct Login : View {
                         .background(Color("Color"))
                         .cornerRadius(10)
                         .padding(.top, 25)
-                        
                     }
                     .padding(.horizontal, 25)
                 }
                 
                 Button(action: {
-                    
                     self.show.toggle()
-                    
                 }) {
                     
                     Text("Register")
@@ -132,25 +134,47 @@ struct Login : View {
     }
     
     func verify(){
-        
         if self.email != "" && self.pass != ""{
-            
             Auth.auth().signIn(withEmail: self.email, password: self.pass) { (res, err) in
-                
-                if err != nil{
-                    
+
+                guard let userUID = Auth.auth().currentUser?.uid else {
                     self.error = err!.localizedDescription
                     self.alert.toggle()
                     return
                 }
                 
+                FirebaseHandler.firestore.collection("users").document(userUID).addSnapshotListener {
+                    (documentSnapshot, error) in
+                    guard let document = documentSnapshot else {
+                        print("No documents")
+                        return
+                    }
+                    
+                    print(document.data()?.count)
+                    print(document.data()?.count)
+
+//                    self.userViewModel.currentUser = document. {
+//                        queryDocumentSnapshot -> User? in
+//                        return try? queryDocumentSnapshot.data(as: User.self)
+//                    }
+
+                    
+                }
+                
+
+                
+////                guard let currentUser = FirebaseHandler.firestore.collection("users").document(userUID) else {
+//                    //korisnik ne postoji
+//                    print("fail korisnik ne postoji")
+//                }
+                
+                
+
                 print("success")
                 UserDefaults.standard.set(true, forKey: "status")
                 NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
             }
-        }
-        else{
-            
+        } else {
             self.error = "Please fill all the contents properly"
             self.alert.toggle()
         }
