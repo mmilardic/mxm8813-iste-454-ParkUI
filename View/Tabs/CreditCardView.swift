@@ -42,6 +42,19 @@ struct CreditCardView: View {
             TextField("Expiration", text: self.$expiration).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("CVV", text: self.$cvv).textFieldStyle(RoundedBorderTextFieldStyle())
             
+            Spacer()
+            
+            Button(action: {
+                //SAVE action
+            }) {
+                Text("Save")
+                    .foregroundColor(.white)
+                    .padding(.vertical)
+                    .frame(width: UIScreen.main.bounds.width - 50)
+            }
+            .background(Color("Color"))
+            .cornerRadius(10)
+            .padding(.top, 25)
             
             Spacer()
             

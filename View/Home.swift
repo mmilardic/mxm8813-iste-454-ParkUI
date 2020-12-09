@@ -21,8 +21,18 @@ struct Home : View {
     
     var body: some View{
         VStack{
+            //korisnik je vec ulogiran
             if self.status{
-                Homescreen()
+                if !(CredentialsRepository.shared.getValue(for: .email).isEmpty && CredentialsRepository.shared.getValue(for: .password).isEmpty) {
+                    
+                    guard let userUID = Auth.auth().currentUser?.uid else {
+                        fatalError("No used UID")
+                    }
+                    
+                    FirebaseHandler().getUserSnapshot(userUID: userUID) { (documentSnapshot) in
+                        self.userViewModel.currentUser = try? documentSnapshot.data(as: User.self)
+                    }
+                    Homescreen(userViewModel: self.userViewModel)
             } else {
                 ZStack{
                     NavigationLink(destination: SignUp(show: self.$show), isActive: self.$show) {
@@ -70,10 +80,14 @@ struct Homescreen : View {
     }
     
     @State private var tabSelection = Tab.home
-    
-    
+    @ObservedObject var userViewModel: UserViewModel
+
     private var navigationBarTitle: String {
         tabSelection == .home ? "ParkUI" : tabSelection.rawValue
+    }
+    
+    init(userViewModel: UserViewModel){
+        self.userViewModel = userViewModel
     }
     
     var body: some View{
@@ -111,7 +125,7 @@ struct Homescreen : View {
                 
                 
                 //profile
-                Text("tralal")
+                ProfileView(userViewModel: self.userViewModel)
                     .tabItem {
                         Image(systemName: Tab.profile.iconName)
                         Text(Tab.profile.rawValue)

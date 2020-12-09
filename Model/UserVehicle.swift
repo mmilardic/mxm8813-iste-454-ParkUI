@@ -8,42 +8,42 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestoreSwift
 
-struct UserVehicle {
-    var name: String
+
+struct UserVehicle: Identifiable, Codable {
+    @DocumentID var id: String?
     var plate: String
-    var userID: String
+//    var userID: String
     
-    var dictionary: [String: Any] {
-        return [
-            "name": name,
-            "plate": plate,
-            "userID": userID
-        ]
-    }
+//    var dictionary: [String: Any] {
+//        return [
+//            "plate": plate
+////            "userID": userID
+//        ]
+//    }
     
-    init(name: String,
-         plate: String,
-         userID: String)
+    init(
+        plate: String
+//        userID: String
+    )
     {
-        self.name = name
         self.plate = plate
-        self.userID = userID
+//        self.userID = userID
     }
     
-    init?(dictionary: [String: Any]){
-        guard
-            let name = dictionary["name"] as? String,
-            let plate = dictionary["plate"] as? String,
-            let userID = dictionary["userID"] as? String
-            else {
-                return nil
-        }
-        
-        self.init(name: name,
-                  plate: plate,
-                  userID: userID)
-        
-    }
+//    init?(dictionary: [String: Any]){
+//        guard
+//            let plate = dictionary["plate"] as? String
+////            let userID = dictionary["userID"] as? String
+//            else {
+//                return nil
+//        }
+//
+//        self.init(
+//            plate: plate
+////            userID: userID
+//        )
+//    }
     
 }

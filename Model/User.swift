@@ -10,55 +10,61 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
-struct User: Codable {
-    @DocumentID var id: String? = UUID().uuidString
+struct User: Codable, Identifiable {
+    @DocumentID var id: String?
     var username: String
     var firstName: String
     var lastName: String
     var password: String
+    var userVehicle: [UserVehicle]
     
-    enum CodingKeys: String, CodingKey {
-        case username
-        case firstName
-        case lastName
-        case password
-    }
     
-    var dictionary: [String: Any] {
-        return [
-            "username": username,
-            "firstName": firstName,
-            "lastName": lastName,
-            "password": password
-        ]
-    }
+    
+//    enum CodingKeys: String, CodingKey {
+//        case username
+//        case firstName
+//        case lastName
+//        case password
+//    }
+    
+//    var dictionary: [String: Any] {
+//        return [
+//            "username": username,
+//            "firstName": firstName,
+//            "lastName": lastName,
+//            "password": password
+//        ]
+//    }
     
     init(username: String,
          firstName: String,
          lastName: String,
-         password: String)
+         password: String,
+         userVehicle: [UserVehicle])
     {
         self.username = username
         self.firstName = firstName
         self.lastName = lastName
         self.password = password
+        self.userVehicle = userVehicle
     }
     
-    init?(dictionary: [String: Any]){
-        guard
-            let username = dictionary["username"] as? String,
-            let firstName = dictionary["firstName"] as? String,
-            let lastName = dictionary["lastName"] as? String,
-            let password = dictionary["password"] as? String
-            else {
-                return nil
-        }
-        
-        self.init(username: username,
-                  firstName: firstName,
-                  lastName: lastName,
-                  password: password)
-        
-    }
+//    init?(dictionary: [String: Any]){
+//        guard
+//            let username = dictionary["username"] as? String,
+//            let firstName = dictionary["firstName"] as? String,
+//            let lastName = dictionary["lastName"] as? String,
+//            let password = dictionary["password"] as? String
+//            else {
+//                return nil
+//        }
+//
+//        self.init(username: username,
+//                  firstName: firstName,
+//                  lastName: lastName,
+//                  password: password,
+//                  userVehicle: userVehi )
+//
+//    }
     
 }

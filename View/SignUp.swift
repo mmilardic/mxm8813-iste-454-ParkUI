@@ -161,8 +161,8 @@ struct SignUp : View {
                         self.alert.toggle()
                         return
                     }
-                    let newUser = User(username: "novi", firstName: "novi", lastName: "novi", password: "novi")
-                    FirebaseHandler.firestore.collection("users").document(userUID).setData(newUser.dictionary)
+                    let newUser = User(username: "novi1", firstName: "novi1", lastName: "novi1", password: self.pass, userVehicle: [])
+                    try? FirebaseHandler.firestore.collection("users").document(userUID).setData(from: newUser.self)
                     
                     print("success")
                     UserDefaults.standard.set(true, forKey: "status")

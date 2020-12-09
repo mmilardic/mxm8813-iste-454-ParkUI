@@ -17,14 +17,30 @@ class UserViewModel: ObservableObject {
     @Published var rePassword = ""
 //    @Published var creditCard = CreditCard()
     @Published var currentUser: User?
+    @Published private(set) var userVehicles: [UserVehicle] = []
         
     var ref: DocumentReference? = nil
     
     enum FirestoreTables: String {
-        case Users = "Users"
+        case Users = "users"
     }
     
+    func addUserVehicle(userVehicle: UserVehicle){
+        self.currentUser?.userVehicle.append(userVehicle)
+        guard let currentUserID = currentUser?.id else {
+            print("did not succeed")
+            return
+        }
+        try? FirebaseHandler.firestore.collection(FirestoreTables.Users.rawValue).document(currentUserID)
+            .setData(from: currentUser.self)
+        
+//        self.userVehicles.append(userVehicle)
+    }
 
+    func deleteUserVehicle(at offsets: IndexSet) {
+        self.userVehicles.remove(atOffsets: offsets)
+    }
+    
     func getCreditCard(){
         
     }
@@ -57,14 +73,14 @@ class UserViewModel: ObservableObject {
 //        return user
     }
     
-    func addUser(user: User){
-        ref = FirebaseHandler.users.addDocument(data: user.dictionary) {
-            err in
-            if let err = err {
-                print("Error adding document: \(err)") }
-            else {
-                print("User added with ID: \(self.ref?.documentID)")
-            }
-        }
-    }
+//    func addUser(user: User){
+//        ref = FirebaseHandler.users.addDocument(data: user.dictionary) {
+//            err in
+//            if let err = err {
+//                print("Error adding document: \(err)") }
+//            else {
+//                print("User added with ID: \(self.ref?.documentID)")
+//            }
+//        }
+//    }
 }

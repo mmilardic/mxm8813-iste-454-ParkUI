@@ -12,7 +12,6 @@ struct ContentView: View {
     
     @ObservedObject private var userViewModel = UserViewModel()
 
-
     var body: some View {
         NavigationView {
             Home(userViewModel: userViewModel)

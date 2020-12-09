@@ -136,40 +136,18 @@ struct Login : View {
     func verify(){
         if self.email != "" && self.pass != ""{
             Auth.auth().signIn(withEmail: self.email, password: self.pass) { (res, err) in
-
+                
                 guard let userUID = Auth.auth().currentUser?.uid else {
                     self.error = err!.localizedDescription
                     self.alert.toggle()
                     return
                 }
                 
-                FirebaseHandler.firestore.collection("users").document(userUID).addSnapshotListener {
-                    (documentSnapshot, error) in
-                    guard let document = documentSnapshot else {
-                        print("No documents")
-                        return
-                    }
-                    
-                    print(document.data()?.count)
-                    print(document.data()?.count)
-
-//                    self.userViewModel.currentUser = document. {
-//                        queryDocumentSnapshot -> User? in
-//                        return try? queryDocumentSnapshot.data(as: User.self)
-//                    }
-
-                    
+                FirebaseHandler().getUserSnapshot(userUID: userUID) { documentSnapshot in
+                    CredentialsRepository.shared.setValue(value: self.email, for: .email)
+                    CredentialsRepository.shared.setValue(value: self.pass, for: .password)
                 }
                 
-
-                
-////                guard let currentUser = FirebaseHandler.firestore.collection("users").document(userUID) else {
-//                    //korisnik ne postoji
-//                    print("fail korisnik ne postoji")
-//                }
-                
-                
-
                 print("success")
                 UserDefaults.standard.set(true, forKey: "status")
                 NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C86DA0A7E2BD0AAAA417206 /* Pods_ParkUI_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC61BB79CD868262F077517 /* Pods_ParkUI_FinalProject.framework */; };
+		E53A0782258172C20062836D /* CredentialsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A0781258172C20062836D /* CredentialsRepository.swift */; };
 		E53A3F72257D02D500C0E354 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A3F71257D02D500C0E354 /* Home.swift */; };
 		E53A3F74257D048F00C0E354 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A3F73257D048F00C0E354 /* Login.swift */; };
 		E53A3F76257D05FD00C0E354 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A3F75257D05FD00C0E354 /* SignUp.swift */; };
@@ -30,11 +31,14 @@
 		E5C19CCF256523AE00131370 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C19CCE256523AE00131370 /* UserViewModel.swift */; };
 		E5C19CD125652A4900131370 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C19CD025652A4900131370 /* Ticket.swift */; };
 		E5C19CD425652E3800131370 /* FirebaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C19CD325652E3800131370 /* FirebaseHandler.swift */; };
+		E5DF1EF9258151FB009BB25C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DF1EF8258151FB009BB25C /* ProfileView.swift */; };
+		E5DF1EFC25815A6F009BB25C /* UserVehicleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DF1EFB25815A6F009BB25C /* UserVehicleRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		667D5C4858DF7EB4483D9959 /* Pods-ParkUI-FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkUI-FinalProject.release.xcconfig"; path = "Target Support Files/Pods-ParkUI-FinalProject/Pods-ParkUI-FinalProject.release.xcconfig"; sourceTree = "<group>"; };
 		9EC61BB79CD868262F077517 /* Pods_ParkUI_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkUI_FinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E53A0781258172C20062836D /* CredentialsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsRepository.swift; sourceTree = "<group>"; };
 		E53A3F71257D02D500C0E354 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		E53A3F73257D048F00C0E354 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		E53A3F75257D05FD00C0E354 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 		E5C19CCE256523AE00131370 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		E5C19CD025652A4900131370 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		E5C19CD325652E3800131370 /* FirebaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHandler.swift; sourceTree = "<group>"; };
+		E5DF1EF8258151FB009BB25C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E5DF1EFB25815A6F009BB25C /* UserVehicleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVehicleRowView.swift; sourceTree = "<group>"; };
 		E7500E59D9DF858B956BA5C9 /* Pods-ParkUI-FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkUI-FinalProject.debug.xcconfig"; path = "Target Support Files/Pods-ParkUI-FinalProject/Pods-ParkUI-FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +100,7 @@
 		E5443B31257EC3C000DE0333 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				E5DF1EFA25815A56009BB25C /* Profile */,
 				E5443B32257EC64700DE0333 /* CreditCardView.swift */,
 			);
 			path = Tabs;
@@ -163,6 +170,7 @@
 				E5C19CD025652A4900131370 /* Ticket.swift */,
 				E53F65A2256ED60700697768 /* UserTicket.swift */,
 				E53B1B3825800FDB0090709E /* CreditCard.swift */,
+				E53A0781258172C20062836D /* CredentialsRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,6 +209,15 @@
 				E5C19CD325652E3800131370 /* FirebaseHandler.swift */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		E5DF1EFA25815A56009BB25C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E5DF1EF8258151FB009BB25C /* ProfileView.swift */,
+				E5DF1EFB25815A6F009BB25C /* UserVehicleRowView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E53F65A3256ED60700697768 /* UserTicket.swift in Sources */,
+				E5DF1EFC25815A6F009BB25C /* UserVehicleRowView.swift in Sources */,
 				E53A3F74257D048F00C0E354 /* Login.swift in Sources */,
 				E5537FE125650D400075038E /* ParkUI_FinalProject.xcdatamodeld in Sources */,
 				E5537FDC25650D400075038E /* AppDelegate.swift in Sources */,
@@ -330,11 +348,13 @@
 				E5C19CD125652A4900131370 /* Ticket.swift in Sources */,
 				E5C19CD425652E3800131370 /* FirebaseHandler.swift in Sources */,
 				E5C19CCF256523AE00131370 /* UserViewModel.swift in Sources */,
+				E53A0782258172C20062836D /* CredentialsRepository.swift in Sources */,
 				E5C19CCD2565233B00131370 /* UserVehicle.swift in Sources */,
 				E53B1B3925800FDB0090709E /* CreditCard.swift in Sources */,
 				E5537FE325650D400075038E /* ContentView.swift in Sources */,
 				E53A3F72257D02D500C0E354 /* Home.swift in Sources */,
 				E5443B33257EC64700DE0333 /* CreditCardView.swift in Sources */,
+				E5DF1EF9258151FB009BB25C /* ProfileView.swift in Sources */,
 				E5537FDE25650D400075038E /* SceneDelegate.swift in Sources */,
 				E53A3F78257D063200C0E354 /* ErrorView.swift in Sources */,
 			);
