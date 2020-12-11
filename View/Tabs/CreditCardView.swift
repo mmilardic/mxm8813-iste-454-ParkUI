@@ -13,17 +13,24 @@ struct CreditCardView: View {
     @State private var degrees: Double = 0
     @State private var flipped: Bool = false
     
+    @ObservedObject var userViewModel: UserViewModel
+
     @State private var name: String = ""
     @State private var expiration: String = ""
     @State private var cvv: String = ""
+    
+    init(userViewModel: UserViewModel){
+        self.userViewModel = userViewModel
+    }
+    
     
     var body: some View {
         VStack (spacing: 4){
             Group {
                 if self.flipped {
-                    CreditCardBack(cvv: self.cvv)
+                    CreditCardBack(cvv: self.userViewModel.currentUser?.creditCard.cvv ?? "cvv not available")
                 } else {
-                    CreditCardFront(name: self.name, expiration: self.expiration)
+                    CreditCardFront(name: self.userViewModel.currentUser?.creditCard.name ?? "name not available", expiration: self.userViewModel.currentUser?.creditCard.expiration ?? "expiration not available")
                 }
             }.rotation3DEffect(
                 .degrees(self.degrees),
@@ -46,6 +53,11 @@ struct CreditCardView: View {
             
             Button(action: {
                 //SAVE action
+                self.userViewModel.currentUser?.creditCard.setValues(name: self.name, expiration: self.expiration, cvv: self.cvv)
+                self.userViewModel.updateDB()
+//                self.name = ""
+//                self.expiration = ""
+//                self.cvv = ""
             }) {
                 Text("Save")
                     .foregroundColor(.white)

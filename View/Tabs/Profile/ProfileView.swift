@@ -22,7 +22,7 @@ struct ProfileView: View {
     
     var body: some View {
         VStack {
-            Text("\(self.email)")
+            Text("\(self.userViewModel.currentUser?.email ?? "user email not found")")
                 .font(.headline)
                 .bold()
                 .padding()
@@ -31,7 +31,7 @@ struct ProfileView: View {
                 .cornerRadius(10)
             
             List {
-                ForEach(userViewModel.userVehicles) { vehicle in
+                ForEach(userViewModel.currentUser?.userVehicle ?? []) { vehicle in
                     UserVehicleRowView(vehicle: vehicle)
                 }
                 .onDelete(perform: userViewModel.deleteUserVehicle)

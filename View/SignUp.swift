@@ -161,7 +161,7 @@ struct SignUp : View {
                         self.alert.toggle()
                         return
                     }
-                    let newUser = User(username: "novi1", firstName: "novi1", lastName: "novi1", password: self.pass, userVehicle: [])
+                    let newUser = User(email: self.email)
                     try? FirebaseHandler.firestore.collection("users").document(userUID).setData(from: newUser.self)
                     
                     print("success")

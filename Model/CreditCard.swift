@@ -9,42 +9,21 @@
 import Foundation
 import Firebase
 
-struct CreditCard {
+class CreditCard: Codable {
     var name: String
     var expiration: String
     var cvv: String
     
-    var dictionary: [String: Any] {
-        return [
-            "name": name,
-            "expiration": expiration,
-            "cvv": cvv
-        ]
-    }
-    
-    init(name: String,
-         expiration: String,
-         cvv: String
-         )
+    init(name: String, expiration: String, cvv: String)
     {
         self.name = name
         self.expiration = expiration
         self.cvv = cvv
     }
     
-    init?(dictionary: [String: Any]){
-        guard
-            let name = dictionary["name"] as? String,
-            let expiration = dictionary["expiration"] as? String,
-            let cvv = dictionary["cvv"] as? String
-            else {
-                return nil
-        }
-        
-        self.init(name: name,
-                  expiration: expiration,
-                  cvv: cvv
-        )
+    func setValues(name: String, expiration: String, cvv: String){
+        self.name = name
+        self.expiration = expiration
+        self.cvv = cvv
     }
-    
 }

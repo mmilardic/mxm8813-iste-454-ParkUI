@@ -15,9 +15,7 @@ class UserViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     @Published var rePassword = ""
-//    @Published var creditCard = CreditCard()
     @Published var currentUser: User?
-    @Published private(set) var userVehicles: [UserVehicle] = []
         
     var ref: DocumentReference? = nil
     
@@ -36,9 +34,19 @@ class UserViewModel: ObservableObject {
         
 //        self.userVehicles.append(userVehicle)
     }
+    
+    func updateDB(){
+        guard let currentUserID = self.currentUser?.id else {
+            print("did not succeed")
+            return
+        }
+        try? FirebaseHandler.firestore.collection(FirestoreTables.Users.rawValue).document(currentUserID)
+            .setData(from: self.currentUser.self)
+    }
 
     func deleteUserVehicle(at offsets: IndexSet) {
-        self.userVehicles.remove(atOffsets: offsets)
+        self.currentUser?.userVehicle.remove(atOffsets: offsets)
+        updateDB()
     }
     
     func getCreditCard(){
