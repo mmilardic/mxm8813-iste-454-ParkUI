@@ -8,32 +8,21 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestoreSwift
+import SwiftUI
 
-struct Ticket {
-    var zoneID: String
+struct Ticket: Codable, Identifiable {
+    @DocumentID var id: String?
+    var idForEach = UUID()
+    var date: Date
+    var durationType: String
+    var zona: String
     var duration: Double
     
-    var dictionary: [String: Any] {
-          return [
-              "zoneID": zoneID,
-              "duration": duration,
-          ]
-      }
-    
-    init(zoneID: String, duration: Double) {
-        self.zoneID = zoneID
+    init(date: Date, durationType: String, zona: String, duration: Double) {
+        self.date = date
+        self.durationType = durationType
+        self.zona = zona
         self.duration = duration
     }
-    
-    init?(dictionary: [String: Any]){
-          guard
-              let zoneID = dictionary["zoneID"] as? String,
-            let duration = dictionary["duration"] as? Double
-              else {
-                  return nil
-          }
-          
-          self.init(zoneID: zoneID,
-                    duration: duration)
-      }
 }

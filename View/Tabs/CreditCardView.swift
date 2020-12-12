@@ -12,6 +12,9 @@ struct CreditCardView: View {
     
     @State private var degrees: Double = 0
     @State private var flipped: Bool = false
+    @State private var editingName = false
+    @State private var editingExpiration = false
+    @State private var editingCVV = false
     
     @ObservedObject var userViewModel: UserViewModel
 
@@ -45,9 +48,18 @@ struct CreditCardView: View {
             
             Spacer()
             
-            TextField("Name", text: self.$name).textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("Expiration", text: self.$expiration).textFieldStyle(RoundedBorderTextFieldStyle())
-            TextField("CVV", text: self.$cvv).textFieldStyle(RoundedBorderTextFieldStyle())
+            TextField("Name", text: self.$name, onEditingChanged: { edit in
+                self.editingName = edit
+            }).textFieldStyle(
+                MyTextFieldStyle(focused: $editingName)).font(Font.custom("textFieldFont", size: 16))
+            TextField("Expiration", text: self.$expiration, onEditingChanged: { edit in
+                self.editingExpiration = edit
+            }).textFieldStyle(
+                MyTextFieldStyle(focused: $editingExpiration)).font(Font.custom("textFieldFont", size: 16))
+            TextField("CVV", text: self.$cvv, onEditingChanged: { edit in
+                self.editingCVV = edit
+            }).textFieldStyle(
+                MyTextFieldStyle(focused: $editingCVV)).font(Font.custom("textFieldFont", size: 16))
             
             Spacer()
             
@@ -60,7 +72,7 @@ struct CreditCardView: View {
 //                self.cvv = ""
             }) {
                 Text("Save")
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                     .padding(.vertical)
                     .frame(width: UIScreen.main.bounds.width - 50)
             }
@@ -174,6 +186,20 @@ struct CreditCardBack: View {
         .cornerRadius(10)
     }
 }
+
+struct MyTextFieldStyle: TextFieldStyle {
+    @Binding var focused: Bool
+    
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+        .padding(8)
+        .background(
+            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .stroke(focused ? Color.blue : Color.gray, lineWidth: 2)
+        ).padding(4)
+    }
+}
+
 
 extension String {
     var isNumeric: Bool {

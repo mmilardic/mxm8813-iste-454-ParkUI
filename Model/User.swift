@@ -14,12 +14,14 @@ struct User: Codable, Identifiable {
     @DocumentID var id: String?
     var email: String
     var userVehicle: [UserVehicle]
+    var userTickets: [Ticket]
     var creditCard: CreditCard
     
     init(email: String)
     {
         self.email = email
         self.userVehicle = []
+        self.userTickets = []
         self.creditCard = CreditCard(name: "ChangeMe", expiration: "ChangeMe", cvv: "121")
     }
         

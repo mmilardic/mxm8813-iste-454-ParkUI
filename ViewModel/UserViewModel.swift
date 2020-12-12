@@ -31,8 +31,6 @@ class UserViewModel: ObservableObject {
         }
         try? FirebaseHandler.firestore.collection(FirestoreTables.Users.rawValue).document(currentUserID)
             .setData(from: currentUser.self)
-        
-//        self.userVehicles.append(userVehicle)
     }
     
     func updateDB(){
@@ -47,14 +45,6 @@ class UserViewModel: ObservableObject {
     func deleteUserVehicle(at offsets: IndexSet) {
         self.currentUser?.userVehicle.remove(atOffsets: offsets)
         updateDB()
-    }
-    
-    func getCreditCard(){
-        
-    }
-    
-    func getUser(email: String){
-//        FirebaseHandler.firestore.user
     }
     
     func getUsers(){

@@ -12,17 +12,22 @@ import SwiftUI
 
 struct Scheduler: View {
     
+    @ObservedObject var userViewModel: UserViewModel
+    
     @State var date = Date()
     @State var data: DateType!
     @State var expand = false
     @State var year = false
     
+    let onSelect = { key in
+        print(key)
+    }
+    
     var body: some View {
         GeometryReader{_ in
-            VStack {
-                
+            VStack(spacing: 8) {
                 if self.data != nil{
-                    
+                
                     ZStack {
                         VStack(spacing: 15){
                             
@@ -145,18 +150,31 @@ struct Scheduler: View {
                         .padding(.horizontal, 30)
                         
                     }
-//                        .border(Color.black, width: 0.5)
-                    .frame(width: UIScreen.main.bounds.width / 1.5)
-                    .background(Color.white)
-                    .cornerRadius(15)
-                    .shadow(radius: 5, x: 20, y:20)
-
+                        //                        .border(Color.black, width: 0.5)
+                        .frame(width: UIScreen.main.bounds.width / 1.5)
+                        .background(Color.white)
+                        .cornerRadius(15)
+                        .shadow(radius: 5, x: 20, y:20)
                 }
+
+                DropDown(selectValues:  ["Hourly", "Daily", "Monthly"])
+                DropDown(selectValues:  ["Zona 1", "Zona 2", "Zona 3"])
+                DropDown(selectValues:  ["Zone 1", "Zone 2", "Zone 3"])
+                
+                Button(action: {
+         
+                }) {
+                    Text("Buy ticket")
+                            .foregroundColor(.black)
+                            .padding(.vertical)
+                            .frame(width: UIScreen.main.bounds.width - 50)
+                    }
+                    .background(Color("Color"))
+                    .cornerRadius(10)
+                    .padding(.top, 25)
                 
                 Spacer()
-
             }//vstack
-                       
         }//geometryReader
             .edgesIgnoringSafeArea(.all)
             
@@ -186,9 +204,66 @@ struct Scheduler: View {
 }
 
 struct DateType {
-    
     var Day: String
     var Date: String
     var Year: String
     var Month: String
 }
+
+struct DropDown : View {
+    
+    @State var expand = false
+    var selectValues: [String]
+    @State var selectedValue: String
+    
+    init(selectValues: [String]){
+        self.selectValues = selectValues
+        _selectedValue = State(initialValue: selectValues[0])
+    }
+    
+    
+    var body: some View {
+        
+        VStack (alignment: .leading, spacing: 10, content: {
+            
+            HStack {
+                Text("\(self.selectedValue)").fontWeight(.heavy).foregroundColor(.white)
+                
+                Image(systemName: expand ? "chevron.up" : "chevron.down").resizable().frame(width: 12, height: 6)
+                    .foregroundColor(.white)
+            }.onTapGesture {
+                self.expand.toggle()
+            }
+            
+            if expand {
+                Button(action: {
+                    self.selectedValue = self.selectValues[0]
+                    self.expand.toggle()
+                }) {
+                    Text("\(self.selectValues[0])")
+                }.foregroundColor(.white)
+                
+                Button(action: {
+                    self.selectedValue = self.selectValues[1]
+                    self.expand.toggle()
+                }) {
+                    Text("\(self.selectValues[1])")
+                }.foregroundColor(.white)
+                
+                Button(action: {
+                    self.selectedValue = self.selectValues[2]
+                    self.expand.toggle()
+                }) {
+                    Text("\(self.selectValues[2])")
+                }.foregroundColor(.white)
+            }
+            
+           })//vstack
+            .padding()
+            .background(LinearGradient(gradient: .init(colors: [.yellow, .orange]), startPoint: .top, endPoint: .bottom))
+            .cornerRadius(20)
+            .animation(.spring())
+    }
+}
+
+
