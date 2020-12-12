@@ -41,10 +41,10 @@ struct SignUp : View {
                             .padding(.top, 35)
                         
                         TextField("Email", text: self.$email)
-                        .autocapitalization(.none)
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color") : self.color,lineWidth: 2))
-                        .padding(.top, 25)
+                            .autocapitalization(.none)
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 4).stroke(self.email != "" ? Color("Color") : self.color,lineWidth: 2))
+                            .padding(.top, 25)
                         
                         HStack(spacing: 15){
                             
@@ -53,12 +53,12 @@ struct SignUp : View {
                                 if self.visible{
                                     
                                     TextField("Password", text: self.$pass)
-                                    .autocapitalization(.none)
+                                        .autocapitalization(.none)
                                 }
                                 else{
                                     
                                     SecureField("Password", text: self.$pass)
-                                    .autocapitalization(.none)
+                                        .autocapitalization(.none)
                                 }
                             }
                             
@@ -67,7 +67,7 @@ struct SignUp : View {
                                 self.visible.toggle()
                                 
                             }) {
-
+                                
                                 Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
                                     .foregroundColor(self.color)
                             }
@@ -83,12 +83,12 @@ struct SignUp : View {
                                 if self.revisible{
                                     
                                     TextField("Re-enter", text: self.$repass)
-                                    .autocapitalization(.none)
+                                        .autocapitalization(.none)
                                 }
                                 else{
                                     
                                     SecureField("Re-enter", text: self.$repass)
-                                    .autocapitalization(.none)
+                                        .autocapitalization(.none)
                                 }
                             }
                             
@@ -149,7 +149,7 @@ struct SignUp : View {
         if self.email != ""{
             if self.pass == self.repass{
                 Auth.auth().createUser(withEmail: self.email, password: self.pass) { (res, err) in
-
+                    
                     guard let userUID = Auth.auth().currentUser?.uid else {
                         self.error = err!.localizedDescription
                         self.alert.toggle()

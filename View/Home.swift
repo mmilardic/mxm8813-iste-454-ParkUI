@@ -51,15 +51,12 @@ struct Home : View {
                 }
             }
         }
-            .navigationBarTitle("")
-                .navigationBarHidden(true)
-                .navigationBarBackButtonHidden(true)
-            .onAppear {
-                
-                NotificationCenter.default.addObserver(forName: NSNotification.Name("status"), object: nil, queue: .main) { (_) in
-                    
-                    self.status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
-                }
+//        .navigationBarTitle("")
+//        .navigationBarHidden(true)
+        .onAppear {
+            NotificationCenter.default.addObserver(forName: NSNotification.Name("status"), object: nil, queue: .main) { (_) in
+                self.status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
+            }
         }
     }
 }
@@ -138,7 +135,7 @@ struct Homescreen : View {
                 }
                 .tag(Tab.scheduler)
                 .navigationBarTitle("Scheduler")
-
+                
                 
                 //profile
                 ProfileView(userViewModel: self.userViewModel)
@@ -159,8 +156,8 @@ struct Homescreen : View {
             }//tabView
         }
         .navigationBarTitle(navigationBarTitle)
-//        .navigationBarHidden(true)
-//        .navigationBarBackButtonHidden(true)
+        //        .navigationBarHidden(true)
+        //        .navigationBarBackButtonHidden(true)
     }
     
 }

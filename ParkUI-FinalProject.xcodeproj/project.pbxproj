@@ -15,7 +15,9 @@
 		E53A3F78257D063200C0E354 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A3F77257D063200C0E354 /* ErrorView.swift */; };
 		E53B1B3925800FDB0090709E /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B1B3825800FDB0090709E /* CreditCard.swift */; };
 		E53D545025842448006D6DC4 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53D544F25842448006D6DC4 /* Scheduler.swift */; };
-		E53F65A3256ED60700697768 /* UserTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53F65A2256ED60700697768 /* UserTicket.swift */; };
+		E541E58725857A1A00B638CE /* Dropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = E541E58625857A1A00B638CE /* Dropdown.swift */; };
+		E541E58A25857AB000B638CE /* CreditCardBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E541E58925857AB000B638CE /* CreditCardBack.swift */; };
+		E541E58C25857ADC00B638CE /* CreditCardFront.swift in Sources */ = {isa = PBXBuildFile; fileRef = E541E58B25857ADC00B638CE /* CreditCardFront.swift */; };
 		E5443B33257EC64700DE0333 /* CreditCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5443B32257EC64700DE0333 /* CreditCardView.swift */; };
 		E5537FDC25650D400075038E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5537FDB25650D400075038E /* AppDelegate.swift */; };
 		E5537FDE25650D400075038E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5537FDD25650D400075038E /* SceneDelegate.swift */; };
@@ -46,7 +48,9 @@
 		E53A3F77257D063200C0E354 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		E53B1B3825800FDB0090709E /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		E53D544F25842448006D6DC4 /* Scheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
-		E53F65A2256ED60700697768 /* UserTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTicket.swift; sourceTree = "<group>"; };
+		E541E58625857A1A00B638CE /* Dropdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dropdown.swift; sourceTree = "<group>"; };
+		E541E58925857AB000B638CE /* CreditCardBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardBack.swift; sourceTree = "<group>"; };
+		E541E58B25857ADC00B638CE /* CreditCardFront.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardFront.swift; sourceTree = "<group>"; };
 		E5443B32257EC64700DE0333 /* CreditCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardView.swift; sourceTree = "<group>"; };
 		E5537FD825650D400075038E /* ParkUI-FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParkUI-FinalProject.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5537FDB25650D400075038E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,11 +103,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E541E585258579F500B638CE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E541E58625857A1A00B638CE /* Dropdown.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E541E58825857A8800B638CE /* CreditCard */ = {
+			isa = PBXGroup;
+			children = (
+				E5443B32257EC64700DE0333 /* CreditCardView.swift */,
+				E541E58925857AB000B638CE /* CreditCardBack.swift */,
+				E541E58B25857ADC00B638CE /* CreditCardFront.swift */,
+			);
+			path = CreditCard;
+			sourceTree = "<group>";
+		};
 		E5443B31257EC3C000DE0333 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				E541E58825857A8800B638CE /* CreditCard */,
 				E5DF1EFA25815A56009BB25C /* Profile */,
-				E5443B32257EC64700DE0333 /* CreditCardView.swift */,
 				E53D544F25842448006D6DC4 /* Scheduler.swift */,
 			);
 			path = Tabs;
@@ -171,7 +193,6 @@
 				E5C19CCA25651EEA00131370 /* User.swift */,
 				E5C19CCC2565233B00131370 /* UserVehicle.swift */,
 				E5C19CD025652A4900131370 /* Ticket.swift */,
-				E53F65A2256ED60700697768 /* UserTicket.swift */,
 				E53B1B3825800FDB0090709E /* CreditCard.swift */,
 				E53A0781258172C20062836D /* CredentialsRepository.swift */,
 			);
@@ -189,6 +210,7 @@
 		E5537FF525650FD90075038E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E541E585258579F500B638CE /* Components */,
 				E5443B31257EC3C000DE0333 /* Tabs */,
 				E53A3F71257D02D500C0E354 /* Home.swift */,
 				E53A3F73257D048F00C0E354 /* Login.swift */,
@@ -339,19 +361,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E53F65A3256ED60700697768 /* UserTicket.swift in Sources */,
 				E5DF1EFC25815A6F009BB25C /* UserVehicleRowView.swift in Sources */,
 				E53A3F74257D048F00C0E354 /* Login.swift in Sources */,
 				E5537FE125650D400075038E /* ParkUI_FinalProject.xcdatamodeld in Sources */,
 				E5537FDC25650D400075038E /* AppDelegate.swift in Sources */,
+				E541E58725857A1A00B638CE /* Dropdown.swift in Sources */,
 				E53A3F76257D05FD00C0E354 /* SignUp.swift in Sources */,
 				E5C19CCB25651EEA00131370 /* User.swift in Sources */,
 				E5C19CC925651EDB00131370 /* Zone.swift in Sources */,
 				E568232B257BDC4300EEDB7A /* CShape.swift in Sources */,
 				E5C19CD125652A4900131370 /* Ticket.swift in Sources */,
 				E5C19CD425652E3800131370 /* FirebaseHandler.swift in Sources */,
+				E541E58A25857AB000B638CE /* CreditCardBack.swift in Sources */,
 				E53D545025842448006D6DC4 /* Scheduler.swift in Sources */,
 				E5C19CCF256523AE00131370 /* UserViewModel.swift in Sources */,
+				E541E58C25857ADC00B638CE /* CreditCardFront.swift in Sources */,
 				E53A0782258172C20062836D /* CredentialsRepository.swift in Sources */,
 				E5C19CCD2565233B00131370 /* UserVehicle.swift in Sources */,
 				E53B1B3925800FDB0090709E /* CreditCard.swift in Sources */,
