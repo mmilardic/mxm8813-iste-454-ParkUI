@@ -41,7 +41,7 @@ struct ErrorView : View {
                 Button(action: {
                     
                     self.alert.toggle()
-                    
+            
                 }) {
                     
                     Text(self.error == "RESET" ? "Ok" : "Cancel")

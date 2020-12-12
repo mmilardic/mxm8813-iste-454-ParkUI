@@ -51,9 +51,9 @@ struct Home : View {
                 }
             }
         }
-            //            .navigationBarTitle("")
-            //            .navigationBarHidden(true)
-            //            .navigationBarBackButtonHidden(true)
+            .navigationBarTitle("")
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
             .onAppear {
                 
                 NotificationCenter.default.addObserver(forName: NSNotification.Name("status"), object: nil, queue: .main) { (_) in
@@ -61,7 +61,6 @@ struct Home : View {
                     self.status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
                 }
         }
-        
     }
 }
 
@@ -138,6 +137,8 @@ struct Homescreen : View {
                         Text(Tab.scheduler.rawValue)
                 }
                 .tag(Tab.scheduler)
+                .navigationBarTitle("Scheduler")
+
                 
                 //profile
                 ProfileView(userViewModel: self.userViewModel)
@@ -155,14 +156,11 @@ struct Homescreen : View {
                 }
                 .tag(Tab.creditCard)
                 
-                
-                
-                
             }//tabView
         }
         .navigationBarTitle(navigationBarTitle)
-        //        .navigationBarHidden(tabSelection == Tab.home)
-        
+//        .navigationBarHidden(true)
+//        .navigationBarBackButtonHidden(true)
     }
     
 }

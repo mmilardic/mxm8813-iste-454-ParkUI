@@ -7,14 +7,24 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct ContentView: View {
     
     @ObservedObject private var userViewModel = UserViewModel()
 
+    func requestNotificationAuthorization(){
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
+            success ? print("notification success") : print(error?.localizedDescription ?? "")
+        }
+    }
+    
+    
     var body: some View {
         NavigationView {
             Home(userViewModel: userViewModel)
+        }.onAppear(){
+            self.requestNotificationAuthorization()
         }
     }
 }

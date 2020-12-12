@@ -9,6 +9,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct Scheduler: View {
     
@@ -19,15 +20,28 @@ struct Scheduler: View {
     @State var expand = false
     @State var year = false
     
-    let onSelect = { key in
-        print(key)
+    //bindings
+    @State var durationType: String = ""
+    @State var zona: String = ""
+    @State var duration: String = ""
+    
+    func scheduleTicket(){
+            let content = UNMutableNotificationContent()
+        content.title = "Ticket purchased"
+        content.subtitle = "ParkUI Ticket"
+        content.sound = UNNotificationSound.default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request)
     }
     
     var body: some View {
         GeometryReader{_ in
             VStack(spacing: 8) {
                 if self.data != nil{
-                
+                    
                     ZStack {
                         VStack(spacing: 15){
                             
@@ -155,34 +169,37 @@ struct Scheduler: View {
                         .background(Color.white)
                         .cornerRadius(15)
                         .shadow(radius: 5, x: 20, y:20)
+                        .padding(.bottom, 10)
                 }
-
-                DropDown(selectValues:  ["Hourly", "Daily", "Monthly"])
-                DropDown(selectValues:  ["Zona 1", "Zona 2", "Zona 3"])
-                DropDown(selectValues:  ["Zone 1", "Zone 2", "Zone 3"])
+                
+                DropDown(selectValues:  ["Hourly", "Daily", "Monthly"], binding: self.$durationType)
+                DropDown(selectValues:  ["Zona 1", "Zona 2", "Zona 3"], binding: self.$zona)
+                DropDown(selectValues:  ["1", "2", "3"], binding: self.$duration)
                 
                 Button(action: {
-         
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "dd-MM-YYYY"
+                    //formatter.string(from: self.date)
+                    let newTicket = Ticket(date: self.date,
+                                           durationType: self.durationType,
+                                           zona: self.zona,
+                                           duration: self.duration)
+                    self.userViewModel.addTicket(ticket: newTicket)
+                    self.scheduleTicket()
                 }) {
                     Text("Buy ticket")
-                            .foregroundColor(.black)
-                            .padding(.vertical)
-                            .frame(width: UIScreen.main.bounds.width - 50)
-                    }
-                    .background(Color("Color"))
-                    .cornerRadius(10)
-                    .padding(.top, 25)
+                        .foregroundColor(.black)
+                        .padding(.vertical)
+                        .frame(width: UIScreen.main.bounds.width - 50)
+                }
+                .background(Color("Color"))
+                .cornerRadius(10)
+                .padding(.top, 25)
                 
                 Spacer()
             }//vstack
         }//geometryReader
             .edgesIgnoringSafeArea(.all)
-            
-            //            .onTapGesture {
-            //                 let formatter = DateFormatter()
-            //                formatter.dateFormat = "dd-MM-YYYY"
-            //                print(formatter.string(from: self.date))
-            //        }
             .onAppear {
                 self.updateDate()
         }
@@ -215,10 +232,12 @@ struct DropDown : View {
     @State var expand = false
     var selectValues: [String]
     @State var selectedValue: String
+    @Binding var valueBinding: String
     
-    init(selectValues: [String]){
+    init(selectValues: [String], binding: Binding<String>){
         self.selectValues = selectValues
         _selectedValue = State(initialValue: selectValues[0])
+        _valueBinding = binding
     }
     
     
@@ -258,7 +277,7 @@ struct DropDown : View {
                 }.foregroundColor(.white)
             }
             
-           })//vstack
+        })//vstack
             .padding()
             .background(LinearGradient(gradient: .init(colors: [.yellow, .orange]), startPoint: .top, endPoint: .bottom))
             .cornerRadius(20)

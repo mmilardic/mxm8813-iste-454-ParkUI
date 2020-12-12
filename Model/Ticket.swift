@@ -17,9 +17,9 @@ struct Ticket: Codable, Identifiable {
     var date: Date
     var durationType: String
     var zona: String
-    var duration: Double
+    var duration: String
     
-    init(date: Date, durationType: String, zona: String, duration: Double) {
+    init(date: Date, durationType: String, zona: String, duration: String) {
         self.date = date
         self.durationType = durationType
         self.zona = zona

@@ -25,12 +25,17 @@ class UserViewModel: ObservableObject {
     
     func addUserVehicle(userVehicle: UserVehicle){
         self.currentUser?.userVehicle.append(userVehicle)
-        guard let currentUserID = currentUser?.id else {
-            print("did not succeed")
-            return
-        }
-        try? FirebaseHandler.firestore.collection(FirestoreTables.Users.rawValue).document(currentUserID)
-            .setData(from: currentUser.self)
+        updateDB()
+    }
+    
+    func deleteUserVehicle(at offsets: IndexSet) {
+        self.currentUser?.userVehicle.remove(atOffsets: offsets)
+        updateDB()
+    }
+    
+    func addTicket(ticket: Ticket){
+        self.currentUser?.userTickets.append(ticket)
+        updateDB()
     }
     
     func updateDB(){
@@ -42,10 +47,6 @@ class UserViewModel: ObservableObject {
             .setData(from: self.currentUser.self)
     }
 
-    func deleteUserVehicle(at offsets: IndexSet) {
-        self.currentUser?.userVehicle.remove(atOffsets: offsets)
-        updateDB()
-    }
     
     func getUsers(){
         FirebaseHandler.firestore.collection("users").getDocuments { (querySnapshot, err) in

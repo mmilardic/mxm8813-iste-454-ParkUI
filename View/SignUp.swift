@@ -67,11 +67,10 @@ struct SignUp : View {
                                 self.visible.toggle()
                                 
                             }) {
-                                
+
                                 Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
                                     .foregroundColor(self.color)
                             }
-                            
                         }
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Color") : self.color,lineWidth: 2))
@@ -147,15 +146,10 @@ struct SignUp : View {
     }
     
     func register(){
-        
-        
         if self.email != ""{
             if self.pass == self.repass{
                 Auth.auth().createUser(withEmail: self.email, password: self.pass) { (res, err) in
-//                    if err != nil{
-//
-//                    }
-//
+
                     guard let userUID = Auth.auth().currentUser?.uid else {
                         self.error = err!.localizedDescription
                         self.alert.toggle()
