@@ -173,20 +173,17 @@ struct Scheduler: View {
                 DropDown(selectValues:  ["Hourly", "Daily", "Monthly"], binding: self.$durationType)
                 DropDown(selectValues:  ["Zona 1", "Zona 2", "Zona 3"], binding: self.$zona)
                 DropDown(selectValues:  ["1", "2", "3"], binding: self.$duration)
-                                                
-//                Spacer()
-                
+                                                                
                 Button(action: {
-//                    let formatter = DateFormatter()
-//                    formatter.dateFormat = "dd-MM-YYYY"
-                    //formatter.string(from: self.date)
                     let newTicket = Ticket(date: self.date,
                                            durationType: self.durationType,
                                            zona: self.zona,
                                            duration: self.duration)
                     print(self.zona)
                     self.userViewModel.addTicket(ticket: newTicket)
-                    self.scheduleTicket()
+                    if !(Calendar.current.isDateInToday(self.date)){
+                        self.scheduleTicket()
+                    }
                 }) {
                     Text("Buy ticket")
                         .foregroundColor(.black)
