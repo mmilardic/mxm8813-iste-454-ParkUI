@@ -23,18 +23,15 @@ struct SignUp : View {
     @State var error = ""
     
     var body: some View{
-        
         ZStack{
-            
             ZStack(alignment: .topLeading) {
-                
                 GeometryReader{_ in
-                    
                     VStack{
+                        Image("ParkingLogo")
+                            .resizable()
+                            .frame(width: 150, height: 150)
                         
-                        Image("logo")
-                        
-                        Text("Log in to your account")
+                        Text("Create your account")
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(self.color)
@@ -47,9 +44,7 @@ struct SignUp : View {
                             .padding(.top, 25)
                         
                         HStack(spacing: 15){
-                            
                             VStack{
-                                
                                 if self.visible{
                                     
                                     TextField("Password", text: self.$pass)
@@ -77,9 +72,7 @@ struct SignUp : View {
                         .padding(.top, 25)
                         
                         HStack(spacing: 15){
-                            
                             VStack{
-                                
                                 if self.revisible{
                                     
                                     TextField("Re-enter", text: self.$repass)
@@ -93,15 +86,11 @@ struct SignUp : View {
                             }
                             
                             Button(action: {
-                                
                                 self.revisible.toggle()
-                                
                             }) {
-                                
                                 Image(systemName: self.revisible ? "eye.slash.fill" : "eye.fill")
                                     .foregroundColor(self.color)
                             }
-                            
                         }
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.repass != "" ? Color("Color") : self.color,lineWidth: 2))
@@ -125,11 +114,8 @@ struct SignUp : View {
                 }
                 
                 Button(action: {
-                    
                     self.show.toggle()
-                    
                 }) {
-                    
                     Image(systemName: "chevron.left")
                         .font(.title)
                         .foregroundColor(Color("Color"))
@@ -142,7 +128,8 @@ struct SignUp : View {
                 ErrorView(alert: self.$alert, error: self.$error)
             }
         }
-        .navigationBarBackButtonHidden(true)
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
     }
     
     func register(){
@@ -158,19 +145,16 @@ struct SignUp : View {
                     let newUser = User(email: self.email)
                     try? FirebaseHandler.firestore.collection("users").document(userUID).setData(from: newUser.self)
                     
-                    print("success")
                     UserDefaults.standard.set(true, forKey: "status")
                     NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
                 }
             }
             else{
-                
                 self.error = "Password mismatch"
                 self.alert.toggle()
             }
         }
         else{
-            
             self.error = "Please fill all the contents properly"
             self.alert.toggle()
         }

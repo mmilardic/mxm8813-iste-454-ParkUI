@@ -12,12 +12,12 @@ struct DropDown : View {
     
     @State var expand = false
     var selectValues: [String]
-    @State var selectedValue: String
+//    @State var selectedValue: String
     @Binding var valueBinding: String
     
     init(selectValues: [String], binding: Binding<String>){
         self.selectValues = selectValues
-        _selectedValue = State(initialValue: selectValues[0])
+//        _selectedValue = State(initialValue: selectValues[0])
         _valueBinding = binding
     }
     
@@ -27,7 +27,7 @@ struct DropDown : View {
         VStack (alignment: .leading, spacing: 10, content: {
             
             HStack {
-                Text("\(self.selectedValue)").fontWeight(.heavy).foregroundColor(.white)
+                Text("\(self.valueBinding)").fontWeight(.heavy).foregroundColor(.white)
                 
                 Image(systemName: expand ? "chevron.up" : "chevron.down").resizable().frame(width: 12, height: 6)
                     .foregroundColor(.white)
@@ -37,21 +37,24 @@ struct DropDown : View {
             
             if expand {
                 Button(action: {
-                    self.selectedValue = self.selectValues[0]
+//                    self.selectedValue = self.selectValues[0]
+                    self.valueBinding = self.selectValues[0]
                     self.expand.toggle()
                 }) {
                     Text("\(self.selectValues[0])")
                 }.foregroundColor(.white)
                 
                 Button(action: {
-                    self.selectedValue = self.selectValues[1]
+//                    self.selectedValue = self.selectValues[1]
+                    self.valueBinding = self.selectValues[1]
                     self.expand.toggle()
                 }) {
                     Text("\(self.selectValues[1])")
                 }.foregroundColor(.white)
                 
                 Button(action: {
-                    self.selectedValue = self.selectValues[2]
+//                    self.selectedValue = self.selectValues[2]
+                    self.valueBinding = self.selectValues[2]
                     self.expand.toggle()
                 }) {
                     Text("\(self.selectValues[2])")

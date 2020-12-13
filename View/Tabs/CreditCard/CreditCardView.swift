@@ -26,9 +26,9 @@ struct CreditCardView: View {
         self.userViewModel = userViewModel
     }
     
-    
     var body: some View {
-        VStack (spacing: 4){
+        VStack (spacing: 8){
+            Spacer()
             Group {
                 if self.flipped {
                     CreditCardBack(cvv: self.userViewModel.currentUser?.creditCard.cvv ?? "cvv not available")

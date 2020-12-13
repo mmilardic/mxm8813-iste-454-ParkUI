@@ -24,17 +24,22 @@ class UserViewModel: ObservableObject {
     }
     
     func addUserVehicle(userVehicle: UserVehicle){
-        self.currentUser?.userVehicle.append(userVehicle)
+        self.currentUser?.userVehicles.append(userVehicle)
         updateDB()
     }
     
     func deleteUserVehicle(at offsets: IndexSet) {
-        self.currentUser?.userVehicle.remove(atOffsets: offsets)
+        self.currentUser?.userVehicles.remove(atOffsets: offsets)
         updateDB()
     }
     
     func addTicket(ticket: Ticket){
         self.currentUser?.userTickets.append(ticket)
+        updateDB()
+    }
+    
+    func deleteTicket(at offsets: IndexSet) {
+        self.currentUser?.userTickets.remove(atOffsets: offsets)
         updateDB()
     }
     

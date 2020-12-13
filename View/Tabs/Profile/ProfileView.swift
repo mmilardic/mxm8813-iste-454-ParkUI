@@ -33,7 +33,7 @@ struct ProfileView: View {
             Spacer()
             
             List {
-                ForEach(userViewModel.currentUser?.userVehicle ?? [], id: \.idForEach) {
+                ForEach(userViewModel.currentUser?.userVehicles ?? [], id: \.idForEach) {
                     UserVehicleRowView(vehicle: $0)
                 }
                 .onDelete(perform: userViewModel.deleteUserVehicle)
@@ -62,9 +62,6 @@ struct ProfileView: View {
             .background(Color("Color"))
             .cornerRadius(10)
             .padding(.top, 25)
-            
-            Spacer()
-            
         }
         .padding()
     }

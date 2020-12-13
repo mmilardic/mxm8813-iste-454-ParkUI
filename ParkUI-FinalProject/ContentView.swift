@@ -22,7 +22,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            Home(userViewModel: userViewModel)
+            ViewControler(userViewModel: userViewModel)
         }.onAppear(){
             self.requestNotificationAuthorization()
         }

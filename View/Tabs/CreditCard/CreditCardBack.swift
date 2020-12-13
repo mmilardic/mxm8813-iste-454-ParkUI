@@ -26,12 +26,16 @@ struct CreditCardBack: View {
             Spacer()
             
             HStack {
+        
                 Text(self.cvv.isNumeric && self.cvv.count < 4 ? self.cvv : "123").foregroundColor(Color.black)
                     .rotation3DEffect(.degrees(180), axis: (x: 0.0, y: 1.0, z: 0.0))
                     .padding(5)
-                    .frame(width: 100, height: 20)
+                    .frame(width: 70, height: 20)
                     .background(Color.white)
-                
+                Text("CVV:")
+                    .foregroundColor(.white)
+                .rotation3DEffect(.degrees(180), axis: (x: 0.0, y: 1.0, z: 0.0))
+
                 Spacer()
             }
             .padding()

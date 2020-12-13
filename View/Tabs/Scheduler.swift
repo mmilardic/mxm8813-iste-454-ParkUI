@@ -19,9 +19,9 @@ struct Scheduler: View {
     @State var year = false
     
     //bindings
-    @State var durationType: String = ""
-    @State var zona: String = ""
-    @State var duration: String = ""
+    @State var durationType: String = "Hourly"
+    @State var zona: String = "Zona 1"
+    @State var duration: String = "1"
     
     func scheduleTicket(){
             let content = UNMutableNotificationContent()
@@ -37,7 +37,7 @@ struct Scheduler: View {
     
     var body: some View {
         GeometryReader{_ in
-            VStack(spacing: 8) {
+            VStack(spacing: 10) {
                 if self.data != nil{
                     
                     ZStack {
@@ -166,22 +166,25 @@ struct Scheduler: View {
                         .frame(width: UIScreen.main.bounds.width / 1.5)
                         .background(Color.white)
                         .cornerRadius(15)
-                        .shadow(radius: 5, x: 20, y:20)
-                        .padding(.bottom, 10)
+                        .shadow(radius: 4, x: 10, y:10)
+                        .padding(.bottom, 8)
                 }
-                
+                                
                 DropDown(selectValues:  ["Hourly", "Daily", "Monthly"], binding: self.$durationType)
                 DropDown(selectValues:  ["Zona 1", "Zona 2", "Zona 3"], binding: self.$zona)
                 DropDown(selectValues:  ["1", "2", "3"], binding: self.$duration)
+                                                
+//                Spacer()
                 
                 Button(action: {
-                    let formatter = DateFormatter()
-                    formatter.dateFormat = "dd-MM-YYYY"
+//                    let formatter = DateFormatter()
+//                    formatter.dateFormat = "dd-MM-YYYY"
                     //formatter.string(from: self.date)
                     let newTicket = Ticket(date: self.date,
                                            durationType: self.durationType,
                                            zona: self.zona,
                                            duration: self.duration)
+                    print(self.zona)
                     self.userViewModel.addTicket(ticket: newTicket)
                     self.scheduleTicket()
                 }) {
@@ -195,7 +198,10 @@ struct Scheduler: View {
                 .padding(.top, 25)
                 
                 Spacer()
+
             }//vstack
+            .padding()
+                .padding(.bottom, 15)
         }//geometryReader
             .edgesIgnoringSafeArea(.all)
             .onAppear {

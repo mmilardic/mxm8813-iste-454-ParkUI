@@ -38,7 +38,9 @@ struct Login : View {
                     
                     VStack{
                         
-                        Image("logo")
+                        Image("ParkingLogo")
+                            .resizable()
+                            .frame(width: 150, height: 150)
                         
                         Text("Log in to your account")
                             .font(.title)
@@ -53,46 +55,33 @@ struct Login : View {
                             .padding(.top, 25)
                         
                         HStack(spacing: 15){
-                            
                             VStack{
-                                
                                 if self.visible{
-                                    
                                     TextField("Password", text: self.$pass)
                                         .autocapitalization(.none)
                                 }
                                 else{
-                                    
                                     SecureField("Password", text: self.$pass)
                                         .autocapitalization(.none)
                                 }
                             }
                             
                             Button(action: {
-                                
                                 self.visible.toggle()
-                                
                             }) {
-                                
                                 Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
                                     .foregroundColor(self.color)
                             }
-                            
                         }
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 4).stroke(self.pass != "" ? Color("Color") : self.color,lineWidth: 2))
                         .padding(.top, 25)
                         
                         HStack{
-                            
                             Spacer()
-                            
                             Button(action: {
-                                
                                 self.reset()
-                                
                             }) {
-                                
                                 Text("Forget password")
                                     .fontWeight(.bold)
                                     .foregroundColor(Color("Color"))
@@ -127,10 +116,11 @@ struct Login : View {
             }
             
             if self.alert{
-                
                 ErrorView(alert: self.$alert, error: self.$error)
             }
         }
+        .navigationBarTitle("")
+            .navigationBarHidden(true)
     }
     
     func verify(){
@@ -148,18 +138,17 @@ struct Login : View {
                     CredentialsRepository.shared.setValue(value: self.pass, for: .password)
                 }
                 
-                print("success")
+                print("Logged in: success")
                 UserDefaults.standard.set(true, forKey: "status")
                 NotificationCenter.default.post(name: NSNotification.Name("status"), object: nil)
             }
         } else {
-            self.error = "Please fill all the contents properly"
+            self.error = "Please fill out the fields"
             self.alert.toggle()
         }
     }
     
     func reset(){
-        
         if self.email != ""{
             
             Auth.auth().sendPasswordReset(withEmail: self.email) { (err) in

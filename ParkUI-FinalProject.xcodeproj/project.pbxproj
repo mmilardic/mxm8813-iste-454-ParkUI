@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5C86DA0A7E2BD0AAAA417206 /* Pods_ParkUI_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC61BB79CD868262F077517 /* Pods_ParkUI_FinalProject.framework */; };
 		E53A0782258172C20062836D /* CredentialsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A0781258172C20062836D /* CredentialsRepository.swift */; };
-		E53A3F72257D02D500C0E354 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A3F71257D02D500C0E354 /* Home.swift */; };
+		E53A3F72257D02D500C0E354 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A3F71257D02D500C0E354 /* ViewController.swift */; };
 		E53A3F74257D048F00C0E354 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A3F73257D048F00C0E354 /* Login.swift */; };
 		E53A3F76257D05FD00C0E354 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A3F75257D05FD00C0E354 /* SignUp.swift */; };
 		E53A3F78257D063200C0E354 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A3F77257D063200C0E354 /* ErrorView.swift */; };
@@ -18,6 +18,9 @@
 		E541E58725857A1A00B638CE /* Dropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = E541E58625857A1A00B638CE /* Dropdown.swift */; };
 		E541E58A25857AB000B638CE /* CreditCardBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E541E58925857AB000B638CE /* CreditCardBack.swift */; };
 		E541E58C25857ADC00B638CE /* CreditCardFront.swift in Sources */ = {isa = PBXBuildFile; fileRef = E541E58B25857ADC00B638CE /* CreditCardFront.swift */; };
+		E5443042258628AA0087D8E7 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5443041258628AA0087D8E7 /* Home.swift */; };
+		E544304425862ABC0087D8E7 /* TabCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E544304325862ABC0087D8E7 /* TabCreator.swift */; };
+		E544304725862CF30087D8E7 /* UserTicketRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E544304625862CF30087D8E7 /* UserTicketRowView.swift */; };
 		E5443B33257EC64700DE0333 /* CreditCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5443B32257EC64700DE0333 /* CreditCardView.swift */; };
 		E5537FDC25650D400075038E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5537FDB25650D400075038E /* AppDelegate.swift */; };
 		E5537FDE25650D400075038E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5537FDD25650D400075038E /* SceneDelegate.swift */; };
@@ -26,7 +29,6 @@
 		E5537FE525650D450075038E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5537FE425650D450075038E /* Assets.xcassets */; };
 		E5537FE825650D450075038E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5537FE725650D450075038E /* Preview Assets.xcassets */; };
 		E5537FEB25650D450075038E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5537FE925650D450075038E /* LaunchScreen.storyboard */; };
-		E568232B257BDC4300EEDB7A /* CShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = E568232A257BDC4300EEDB7A /* CShape.swift */; };
 		E5C19CC725651D0E00131370 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5C19CC625651D0E00131370 /* GoogleService-Info.plist */; };
 		E5C19CC925651EDB00131370 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C19CC825651EDB00131370 /* Zone.swift */; };
 		E5C19CCB25651EEA00131370 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C19CCA25651EEA00131370 /* User.swift */; };
@@ -42,7 +44,7 @@
 		667D5C4858DF7EB4483D9959 /* Pods-ParkUI-FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkUI-FinalProject.release.xcconfig"; path = "Target Support Files/Pods-ParkUI-FinalProject/Pods-ParkUI-FinalProject.release.xcconfig"; sourceTree = "<group>"; };
 		9EC61BB79CD868262F077517 /* Pods_ParkUI_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkUI_FinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E53A0781258172C20062836D /* CredentialsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsRepository.swift; sourceTree = "<group>"; };
-		E53A3F71257D02D500C0E354 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		E53A3F71257D02D500C0E354 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E53A3F73257D048F00C0E354 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		E53A3F75257D05FD00C0E354 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		E53A3F77257D063200C0E354 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -51,6 +53,9 @@
 		E541E58625857A1A00B638CE /* Dropdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dropdown.swift; sourceTree = "<group>"; };
 		E541E58925857AB000B638CE /* CreditCardBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardBack.swift; sourceTree = "<group>"; };
 		E541E58B25857ADC00B638CE /* CreditCardFront.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardFront.swift; sourceTree = "<group>"; };
+		E5443041258628AA0087D8E7 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		E544304325862ABC0087D8E7 /* TabCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCreator.swift; sourceTree = "<group>"; };
+		E544304625862CF30087D8E7 /* UserTicketRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTicketRowView.swift; sourceTree = "<group>"; };
 		E5443B32257EC64700DE0333 /* CreditCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardView.swift; sourceTree = "<group>"; };
 		E5537FD825650D400075038E /* ParkUI-FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParkUI-FinalProject.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5537FDB25650D400075038E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,7 +66,6 @@
 		E5537FE725650D450075038E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E5537FEA25650D450075038E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5537FEC25650D450075038E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E568232A257BDC4300EEDB7A /* CShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CShape.swift; sourceTree = "<group>"; };
 		E5C19CC625651D0E00131370 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E5C19CC825651EDB00131370 /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
 		E5C19CCA25651EEA00131370 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -121,9 +125,19 @@
 			path = CreditCard;
 			sourceTree = "<group>";
 		};
+		E544304525862CD40087D8E7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E5443041258628AA0087D8E7 /* Home.swift */,
+				E544304625862CF30087D8E7 /* UserTicketRowView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		E5443B31257EC3C000DE0333 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				E544304525862CD40087D8E7 /* Home */,
 				E541E58825857A8800B638CE /* CreditCard */,
 				E5DF1EFA25815A56009BB25C /* Profile */,
 				E53D544F25842448006D6DC4 /* Scheduler.swift */,
@@ -134,7 +148,6 @@
 		E5537FCF25650D400075038E = {
 			isa = PBXGroup;
 			children = (
-				E5682327257BDBED00EEDB7A /* Shapes */,
 				E5C19CD225652E1D00131370 /* Firebase */,
 				E5C19CC625651D0E00131370 /* GoogleService-Info.plist */,
 				E5537FF525650FD90075038E /* View */,
@@ -212,20 +225,13 @@
 			children = (
 				E541E585258579F500B638CE /* Components */,
 				E5443B31257EC3C000DE0333 /* Tabs */,
-				E53A3F71257D02D500C0E354 /* Home.swift */,
 				E53A3F73257D048F00C0E354 /* Login.swift */,
 				E53A3F75257D05FD00C0E354 /* SignUp.swift */,
 				E53A3F77257D063200C0E354 /* ErrorView.swift */,
+				E53A3F71257D02D500C0E354 /* ViewController.swift */,
+				E544304325862ABC0087D8E7 /* TabCreator.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		E5682327257BDBED00EEDB7A /* Shapes */ = {
-			isa = PBXGroup;
-			children = (
-				E568232A257BDC4300EEDB7A /* CShape.swift */,
-			);
-			path = Shapes;
 			sourceTree = "<group>";
 		};
 		E5C19CD225652E1D00131370 /* Firebase */ = {
@@ -362,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5DF1EFC25815A6F009BB25C /* UserVehicleRowView.swift in Sources */,
+				E544304725862CF30087D8E7 /* UserTicketRowView.swift in Sources */,
 				E53A3F74257D048F00C0E354 /* Login.swift in Sources */,
 				E5537FE125650D400075038E /* ParkUI_FinalProject.xcdatamodeld in Sources */,
 				E5537FDC25650D400075038E /* AppDelegate.swift in Sources */,
@@ -369,8 +376,8 @@
 				E53A3F76257D05FD00C0E354 /* SignUp.swift in Sources */,
 				E5C19CCB25651EEA00131370 /* User.swift in Sources */,
 				E5C19CC925651EDB00131370 /* Zone.swift in Sources */,
-				E568232B257BDC4300EEDB7A /* CShape.swift in Sources */,
 				E5C19CD125652A4900131370 /* Ticket.swift in Sources */,
+				E544304425862ABC0087D8E7 /* TabCreator.swift in Sources */,
 				E5C19CD425652E3800131370 /* FirebaseHandler.swift in Sources */,
 				E541E58A25857AB000B638CE /* CreditCardBack.swift in Sources */,
 				E53D545025842448006D6DC4 /* Scheduler.swift in Sources */,
@@ -380,9 +387,10 @@
 				E5C19CCD2565233B00131370 /* UserVehicle.swift in Sources */,
 				E53B1B3925800FDB0090709E /* CreditCard.swift in Sources */,
 				E5537FE325650D400075038E /* ContentView.swift in Sources */,
-				E53A3F72257D02D500C0E354 /* Home.swift in Sources */,
+				E53A3F72257D02D500C0E354 /* ViewController.swift in Sources */,
 				E5443B33257EC64700DE0333 /* CreditCardView.swift in Sources */,
 				E5DF1EF9258151FB009BB25C /* ProfileView.swift in Sources */,
+				E5443042258628AA0087D8E7 /* Home.swift in Sources */,
 				E5537FDE25650D400075038E /* SceneDelegate.swift in Sources */,
 				E53A3F78257D063200C0E354 /* ErrorView.swift in Sources */,
 			);

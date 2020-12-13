@@ -57,7 +57,7 @@ struct CreditCardFront: View {
                 Spacer()
                 
                 VStack {
-                    Text("EXPIRES")
+                    Text("VALID THRU")
                         .font(.caption)
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)
