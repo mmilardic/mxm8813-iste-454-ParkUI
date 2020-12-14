@@ -123,7 +123,7 @@ struct Login : View {
             .navigationBarHidden(true)
     }
     
-    func verify(){
+    private func verify(){
         if self.email != "" && self.pass != ""{
             Auth.auth().signIn(withEmail: self.email, password: self.pass) { (res, err) in
                 

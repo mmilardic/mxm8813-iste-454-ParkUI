@@ -17,13 +17,14 @@ struct Scheduler: View {
     @State var data: DateType!
     @State var expand = false
     @State var year = false
+    @State private var showingAlert = false
     
     //bindings
     @State var durationType: String = "Hourly"
     @State var zona: String = "Zona 1"
     @State var duration: String = "1"
     
-    func scheduleTicket(){
+    private func scheduleTicket(){
             let content = UNMutableNotificationContent()
         content.title = "Ticket purchased"
         content.subtitle = "ParkUI Ticket"
@@ -184,6 +185,7 @@ struct Scheduler: View {
                     if !(Calendar.current.isDateInToday(self.date)){
                         self.scheduleTicket()
                     }
+                    self.showingAlert = true
                 }) {
                     Text("Buy ticket")
                         .foregroundColor(.black)
@@ -193,6 +195,11 @@ struct Scheduler: View {
                 .background(Color("Color"))
                 .cornerRadius(10)
                 .padding(.top, 25)
+                .alert(isPresented: self.$showingAlert){
+                    Alert(title: Text("You have bought a ticket."),
+                          message: Text("You will find all your tickets on the home tab."),
+                          dismissButton: .default(Text("Got it!")))
+                }
                 
                 Spacer()
 
