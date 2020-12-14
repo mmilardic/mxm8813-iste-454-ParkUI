@@ -9,7 +9,7 @@
 import SwiftUI
 import Firebase
 
-struct ViewControler: View {
+struct ControllerView: View {
     
     @ObservedObject var userViewModel: UserViewModel
     @State var show = false
